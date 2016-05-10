@@ -1,0 +1,39 @@
+<snippet>
+  <content><![CDATA[
+# ${1:Project Name}
+
+This Project is a rewrite of my Web Site ivanlagace.com.  The idea is to manage approximately 15000 photos and about 100 videos I have personally captured over the last 35 years.  I originally wrote the site back in early 2000 in javascript with some C# code for generating the folder structures.  The Web Site chronicles the life of my parents, my own family, the many trips I have completed all over the world and the people I have met.
+
+As an experiment I am rebuilding the Web Site from scratch using node.js, mongoDB and a Bootstrap HTML template that I bought from wagontheme.com and which I modified substantially.  The Bootstrap model is using modules like isotope and photostack.  I am using Bower and Gulp to manage the code.  The web site is deployed on AWS EC2.  The goal is to improve the hosting of my website (on my local PC previously) and improve the management when adding more materials.
+
+## Installation
+
+All modules installed using npm plus mongoDB install.  For EC2 deployment I used the tutorial from http://www.robert-drummond.com/2013/04/25/a-node-js-application-on-the-amazon-cloud-part-1-installing-node-on-an-ec2-instance/
+
+## Usage
+
+Demonstration of my knowledge of node.js, mongoDB, javascript, jquery() and other programming skills.
+
+## Contributing
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
+
+## History
+
+See above
+
+## Credits
+
+Technext Limited who contributed the Photographer template (purchased) - the Best Free Responsive Photography HTML5 Template.
+
+## License
+
+OpenSource
+
+]]></content>
+  <tabTrigger>readme</tabTrigger>
+</snippet>

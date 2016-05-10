@@ -1,0 +1,43 @@
+html
+    head
+        //-bower:css
+        link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.min.css')
+        //-endbower
+        //-bower:js
+        script(src='/lib/jquery/dist/jquery.js')
+        script(src='/lib/bootstrap/dist/js/bootstrap.js')
+        //-endbower
+        //-inject:js
+        script(src="/js/animated-masonry-gallery.js")
+        script(src="/js/classie.js")
+        script(src="/js/contact.js")
+        script(src="/js/isotope.js")
+        script(src="/js/isotope.pkgd.min.js")
+        script(src="/js/jquery-ui-1.10.4.min.js")
+        script(src="/js/jquery.js")
+        script(src="/js/lightbox.js")
+        script(src="/js/main.js")
+        script(src="/js/modernizr.min.js")
+        script(src="/js/photostack.js")
+        //-endinject
+        //-inject:css
+        link(rel="stylesheet", href="/css/animated-masonry-gallery.css")
+        link(rel="stylesheet", href="/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/component.css")
+        link(rel="stylesheet", href="/css/demo.css")
+        link(rel="stylesheet", href="/css/full-slider.css")
+        link(rel="stylesheet", href="/css/lightbox.css")
+        link(rel="stylesheet", href="/css/navmenu-reveal.css")
+        link(rel="stylesheet", href="/css/normalize.css")
+        link(rel="stylesheet", href="/css/style.css")
+        //-endinject
+
+        title MyApp
+    body(class='myclass')
+        h1(id='myID') My App
+        p
+            h3 sub heading
+        ul
+            each val in list
+                li= val
