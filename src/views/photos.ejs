@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>Photo Graphy - Portfolio</title>
+    <title>Photography - Portfolio</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -78,7 +78,8 @@
                     <div id="gallery-content-center">
                         <% for(var i = 0; i < results.length; i++) {%>
                             <a href="assets/<%=theme%>/<%=results[i].folder%>/<%=results[i].filename%>" data-lightbox="studio1"><img src="assets/<%=theme%>/<%=results[i].folder%>/<%=results[i].filename%>" class="<%=Math.floor((i/20) + 1)%>"
-                            alt="Dim: <%=results[i].photoDimW%> x <%=results[i].photoDimW%>, <%=results[i].camera%> <%=results[i].description%> <%=gpsdata[i]%>" id="photo<%=i%>" />  </a>
+                            alt="Dim: <%=results[i].photoDimW%> x <%=results[i].photoDimH%>, <%=results[i].camera%>
+                            <%=results[i].description%> <%=results[i].reverseGeo%>" id="photo<%=i%>" />  </a>
                         <%}%>
                     </div>
                 </div>

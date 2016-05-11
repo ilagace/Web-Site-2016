@@ -1,18 +1,5 @@
 var mongodb = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
-var GoogleMapsAPI = require('googlemaps');
-
-//  Setup Google Maps API
-var publicConfig = {
-    key: 'AIzaSyAhPi1zmHW0g3PdQgTs9rcO-3FweDPiT-U',
-};
-var gmAPI = new GoogleMapsAPI(publicConfig);
-
-//  Google Maps reverse geocode API
-var reverseGeocodeParams = {
-    'latlng':        '0,0',
-    'language':      'en'
-};
 
 var navController = function(basenav, localbasenav, indexnav, indexskip, pagesize) {
 
@@ -67,48 +54,18 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                 photocount = results;
             });
             collection.find({folder: folder}).sort({exifdate: 1, filename: 1}).limit(pagesize).skip(indexnav).toArray(function(err, results) {
-                console.log(results,folder);
                 if (results) {
-                    var gpsdata = [];
-                    var looplength = 0;
                     var themeid = localbasenav.indexOf(results[0].theme);
                     //  check if we are at the end of the folder
                     var photoend = true;
                     if (photocount > (indexnav + results.length)) {
                         photoend =  false;
                     }
-                    for (var i = 0; i < results.length; i++) {
-                        if (results[i].gpsLat) {
-                            looplength += 1;
-                            var latstr = results[i].gpsLat.slice(',');
-                            var latfloat = parseInt(latstr[0]) + parseInt(latstr[1]) / 60 + parseInt(latstr[2]) / 3600;
-                            var longstr = results[i].gpsLong.slice(',');
-                            var longfloat = parseInt(longstr[0]) + parseInt(longstr[1]) / 60 + parseInt(longstr[2]) / 3600;
-                            reverseGeocodeParams.latlng = latfloat + ',-' + longfloat;
-                            gmAPI.reverseGeocode(reverseGeocodeParams, function(err, gpsresult) {
-                                if (!err && gpsresult.status === 'OK') {
-                                    gpsdata.push('GPS:' + gpsresult.results[0].formatted_address);
-                                } else {
-                                    gpsdata.push('');
-                                }
-                                if (gpsdata.length === looplength) {
-                                    res.render('photos',  {nav: ['Back', 'Theme'],
-                                                            link: ['/navigation/' + themeid, '/navigation/'] ,
-                                                            theme: basenav[themeid], results: results,
-                                                            pagesize: pagesize, indexnav: indexnav, photoend: photoend,
-                                                            gpsdata: gpsdata});
-                                }
-                            });
-                        }
-                    }
-                    //  if no gps data available at all
-                    if (looplength === 0) {
-                        res.render('photos',  {nav: ['Back', 'Theme'],
-                                    link: ['/navigation/' + themeid, '/navigation/'] ,
-                                    theme: basenav[themeid], results: results,
-                                    pagesize: pagesize, indexnav: indexnav, photoend: photoend,
-                                    gpsdata: gpsdata});
-                    }
+                    res.render('photos',  {nav: ['Back', 'Theme'],
+                                link: ['/navigation/' + themeid, '/navigation/'] ,
+                                theme: basenav[themeid], results: results,
+                                pagesize: pagesize, indexnav: indexnav, photoend: photoend
+                                });
                 } else {
                     res.render('navigation', {nav: basenav, link: '/navigation/'});
                 }

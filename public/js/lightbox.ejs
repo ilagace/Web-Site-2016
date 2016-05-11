@@ -56,7 +56,8 @@
   };
 
   Lightbox.prototype.imageCountLabel = function(currentImageNum, totalImages) {
-    var datastr = $("#photo" + currentImageNum).attr("alt");
+    var slidenum = currentImageNum - 1;
+    var datastr = $("#photo" + slidenum).attr("alt");
     return this.options.albumLabel.replace(/%1/g, currentImageNum).replace(/%2/g, totalImages).replace(/%3/g, datastr);
   };
 
