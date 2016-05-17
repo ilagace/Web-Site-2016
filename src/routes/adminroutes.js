@@ -8,19 +8,130 @@ var GoogleMapsAPI = require('googlemaps');
 
 var iconv = require('iconv-lite');
 
-var router = function() {
+var router = function(basenav, localbasenav, category) {
+
+    //  To do a walkthrough of all the photos for my web site
+    var walk = require('walk'),
+        options, walker;
+
+    options = {
+        followLinks: false,
+        // directories with these keys will be skipped                 ,
+        filters: ['thumb']
+    };
+    //  Angular will handle the data for the page by calling /mediadata and eventually /searchnewdata
+    adminrouter.route('/managemedia').get(function(req, res) {
+        res.render('managemedia');
+    });
+
+    adminrouter.route('/mediadata').get(function(req, res) {
+        var photoArray = {};
+        var folderList = {};
+        var pkey = '';
+        var url = 'mongodb://localhost:27017/library';
+        mongodb.connect(url, function(err,db) {
+            var collection = db.collection('IvanPhotos');
+            collection.find({},{theme:1, folder:1, filename:1, category:1}).sort({theme:1}).toArray(function(err, results) {
+                if (results) {
+                    var prevtheme = results[0].theme;
+                    var prevfolder = '';
+                    var photoSet = [];
+                    var folderSet = [];
+                    for (var i = 0; i < results.length; i++) {
+                        if (results[i].theme !== prevtheme || results[i].folder !== prevfolder) {
+                            if (results[i].theme !== prevtheme) {
+                                folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet;
+                                folderSet = [];
+                            }
+                            folderSet.push(results[i].folder);
+                            prevtheme = results[i].theme;
+                            prevfolder = results[i].folder;
+                            pkey = basenav[localbasenav.indexOf(results[i].theme)] + results[i].folder;
+                            photoSet = [];
+                        }
+                        photoSet.push('assets/' + basenav[localbasenav.indexOf(results[i].theme)] + '/' +
+                            results[i].folder + '/' + results[i].filename);
+                        photoArray[pkey] = photoSet;
+                    }
+                    folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet;
+                    console.log(folderList);
+                    res.json({basenav: basenav, category: category, photoArray: photoArray, folderList: folderList});
+                }
+            });
+        });
+    });
+
+    adminrouter.route('/searchnewdata').get(function(req, res) {
+
+        console.log('being called...');
+        var imagetype = ['.jpg', 'JPG','.bmp'];
+        var folderArray = [];
+        var folderList = [];
+        function lookupList() {
+            var theme = '';
+            var folder = '';
+            for (var i = 0, len = folderArray.length; i < len; i++) {
+                if (folderArray[i][0] !== theme || folderArray[i][2] !== folder) {
+                    folderList.push([folderArray[i][0], folderArray[i][2]]);
+                }
+                theme = folderArray[i][0];
+                folder = folderArray[i][2];
+            }
+            return;
+        }
+
+        //walker = walk.walk('D:\\Web', options);
+        walker = walk.walk('D:\\Web\\Web site\\Yvan\\Turk\ and\ Caicos', options);
+
+        walker.on('directories', function(root, dirStatsArray, next) {
+            // dirStatsArray is an array of `stat` objects with the additional attributes
+            // * type
+            // * error
+            // * name
+            next();
+        });
+
+        walker.on('file', function(root, fileStats, next) {
+            //  check for images
+            var typetest = false;
+            for (var i = 0; i < imagetype.length; i++) {
+                typetest = typetest || fileStats.name.indexOf(imagetype[i]) !== -1;
+            }
+            //  All images are kept in the v8x6 folder
+            if (root.indexOf('v8x6') !== -1 && typetest) {
+                var dirSplit = root.split('\\');
+                var fork = '';
+                if (dirSplit[2].indexOf('2') !== -1) {
+                    fork = ' 2';
+                }
+                var path = 'file:///d:/' + 'Web Photos\/my photos' + fork + '\/' + dirSplit[3] +  '\/' + dirSplit[4] +  '\/' + fileStats.name;
+                var findex = localbasenav.indexOf(dirSplit[3]);
+                if (fork !== '') {
+                    findex += 2;
+                }
+                var folderdata = [];
+                folderdata[0] = basenav[findex];
+                folderdata[1] = path;
+                folderdata[2] = dirSplit[4];
+                folderArray.push(folderdata);
+            }
+            next();
+        });
+
+        walker.on('errors', function(root, nodeStatsArray, next) {
+            next();
+        });
+
+        walker.on('end', function() {
+            lookupList();
+            console.log('folder walk completed', folderList.length, folderArray.length, category);
+            //res.render('managemedia', {basenav: basenav, category: category, folderArray: folderArray, folderList: folderList});
+            //res.render('managemedia', {category: category});
+            res.json({basenav: basenav, category: category, folderArray: folderArray, folderList: folderList});
+        });
+    });
 
     adminrouter.route('/addphotos').get(function(req, res) {
-
-        //  To do a walkthrough of all the photos for my web site
-        var walk = require('walk'),
-            options, walker;
-
-        options = {
-            followLinks: false,
-            // directories with these keys will be skipped                 ,
-            filters: ['thumb']
-        };
 
         //  To read the exif data on most recent photos
         var ExifImage = require('exif').ExifImage;

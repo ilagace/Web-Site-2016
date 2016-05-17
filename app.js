@@ -10,15 +10,16 @@ var passport = require('passport');
 var session = require('express-session');
 
 var basenav = ['Ivan', 'Alex', 'Alex et les Lagacé', 'Alex et les Cantin', 'Vieilles Photos Lagace', 'Vieilles Photos Cantin'];
-var localbasenav = ['Yvan', 'Famille', 'Lagace', 'Cantin', 'Lagace 2', 'Cantin 2'];
+var localbasenav = ['Yvan', 'Famille', 'Lagace', 'Cantin', 'Lagace', 'Cantin'];
+var category = ['Mountains', 'Sea', 'Cities', 'Friendship', 'Family', 'Culture', 'Sports'];
 var indexnav = 0;
 var pagesize = 80;
 var indexskip = '0';
 
 var navrouter = require('./src/routes/navroutes')(basenav, localbasenav, indexnav, indexskip, pagesize);
-var adminrouter = require('./src/routes/adminroutes')(basenav, localbasenav, indexnav);
-var searchrouter = require('./src/routes/searchroutes')(basenav, localbasenav, indexnav);
-var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav, indexnav);
+var adminrouter = require('./src/routes/adminroutes')(basenav, localbasenav, category);
+var searchrouter = require('./src/routes/searchroutes')(basenav, localbasenav);
+var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav);
 
 app.use(express.static('public'));
 app.use('/navigation', express.static('public'));
@@ -26,6 +27,7 @@ app.use('/gallery', express.static('public'));
 app.use('/navigation/folder', express.static('public'));
 app.use('/navigation/folder/assets', express.static('public'));
 app.use('/admin/contact', express.static('public'));
+app.use('/admin/managemedia', express.static('public'));
 app.set('views','./src/views');
 
 app.use(bodyParser.json());
