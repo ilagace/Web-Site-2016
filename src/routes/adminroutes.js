@@ -24,6 +24,21 @@ var router = function(basenav, localbasenav, category) {
         res.render('managemedia');
     });
 
+    //  Post request from angular to save Category in DB
+    adminrouter.route('/setCategory').post(function(req, res) {
+        var url = 'mongodb://localhost:27017/library';
+        mongodb.connect(url, function(err,db) {
+            var collection = db.collection('IvanPhotos');
+            var dirSplit = req.body.photo.split('/');
+            collection.updateOne({theme: localbasenav[basenav.indexOf(dirSplit[1])], folder: dirSplit[2], filename: dirSplit[3]},
+                                 {$set: {category: req.body.category}}
+                                );
+            console.log('Category inserted: ', req.body.category);
+            db.close();
+            res.send({result:'success'});
+        });
+    });
+
     //  Angular will handle the data for the page by calling /searchmedia
     adminrouter.route('/searchmedia').get(function(req, res) {
         res.render('searchmedia');
