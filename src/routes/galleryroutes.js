@@ -4,9 +4,10 @@ var mongodb = require('mongodb').MongoClient;
 
 var galleryrouter = express.Router();
 
-var router = function(basenav) {
+var router = function(basenav,localnav) {
 
     galleryrouter.route('/').get(function(req, res) {
+
         res.render('gallery');
     });
 

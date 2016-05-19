@@ -28,6 +28,7 @@ app.use('/navigation/folder', express.static('public'));
 app.use('/navigation/folder/assets', express.static('public'));
 app.use('/admin/contact', express.static('public'));
 app.use('/admin/managemedia', express.static('public'));
+app.use('/admin/searchmedia', express.static('public'));
 app.set('views','./src/views');
 
 app.use(bodyParser.json());

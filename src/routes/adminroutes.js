@@ -19,9 +19,14 @@ var router = function(basenav, localbasenav, category) {
         // directories with these keys will be skipped                 ,
         filters: ['thumb']
     };
-    //  Angular will handle the data for the page by calling /mediadata and eventually /searchnewdata
+    //  Angular will handle the data for the page by calling /managemedia and eventually /searchmedia
     adminrouter.route('/managemedia').get(function(req, res) {
         res.render('managemedia');
+    });
+
+    //  Angular will handle the data for the page by calling /searchmedia
+    adminrouter.route('/searchmedia').get(function(req, res) {
+        res.render('searchmedia');
     });
 
     adminrouter.route('/mediadata').get(function(req, res) {
@@ -49,89 +54,136 @@ var router = function(basenav, localbasenav, category) {
                             pkey = basenav[localbasenav.indexOf(results[i].theme)] + results[i].folder;
                             photoSet = [];
                         }
-                        photoSet.push('assets/' + basenav[localbasenav.indexOf(results[i].theme)] + '/' +
-                            results[i].folder + '/' + results[i].filename);
+                        photoSet.push(['assets/' + basenav[localbasenav.indexOf(results[i].theme)] + '/' +
+                            results[i].folder + '/' + results[i].filename, results[i].category]);
                         photoArray[pkey] = photoSet;
                     }
                     folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet;
-                    console.log(folderList);
+                    db.close();
                     res.json({basenav: basenav, category: category, photoArray: photoArray, folderList: folderList});
                 }
             });
         });
     });
 
-    adminrouter.route('/searchnewdata').get(function(req, res) {
+    adminrouter.route('/searchfolder').get(function(req, res) {
 
-        console.log('being called...');
+        console.log('search being called...please wait');
         var imagetype = ['.jpg', 'JPG','.bmp'];
-        var folderArray = [];
-        var folderList = [];
-        function lookupList() {
-            var theme = '';
-            var folder = '';
-            for (var i = 0, len = folderArray.length; i < len; i++) {
-                if (folderArray[i][0] !== theme || folderArray[i][2] !== folder) {
-                    folderList.push([folderArray[i][0], folderArray[i][2]]);
+        var photocounter = 0;
+        var totalCount = 0;
+        var findErrorNum = 0;
+        var recordCheck = 0;
+        var recordFound = 0;
+        var walkerEnd = false;
+
+        var photoArray = {};
+        var folderList = {};
+        var photoList = [];
+        var pkey = '';
+
+        var url = 'mongodb://localhost:27017/library';
+        mongodb.connect(url, function(err,db) {
+            var collection = db.collection('IvanPhotos');
+
+            //  Wait until all callback are finished before closing
+            function oncomplete() {
+                if (totalCount === (recordCheck - recordFound - findErrorNum)) {
+                    console.log('A total of ' + totalCount + ' records were added and ' + recordCheck + ' records checked.');
+                    db.close();
+                    var prevtheme = photoList[0].theme;
+                    var prevfolder = '';
+                    var photoSet = [];
+                    var folderSet = [];
+                    for (var i = 0; i < photoList.length; i++) {
+                        if (photoList[i].theme !== prevtheme || photoList[i].folder !== prevfolder) {
+                            if (photoList[i].theme !== prevtheme) {
+                                folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet;
+                                folderSet = [];
+                            }
+                            folderSet.push(photoList[i].folder);
+                            prevtheme = photoList[i].theme;
+                            prevfolder = photoList[i].folder;
+                            pkey = basenav[localbasenav.indexOf(photoList[i].theme)] + ',' + photoList[i].folder;
+                            photoSet = [];
+                        }
+                        photoSet.push('assets/' + basenav[localbasenav.indexOf(photoList[i].theme)] + '/' +
+                            photoList[i].folder + '/' + photoList[i].filename);
+                        photoArray[pkey] = photoSet;
+                    }
+                    folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet;
+                    res.json({basenav: basenav, photoArray: photoArray, folderList: folderList});
                 }
-                theme = folderArray[i][0];
-                folder = folderArray[i][2];
             }
-            return;
-        }
 
-        //walker = walk.walk('D:\\Web', options);
-        walker = walk.walk('D:\\Web\\Web site\\Yvan\\Turk\ and\ Caicos', options);
+            //walker = walk.walk('D:\\Web', options);
+            walker = walk.walk('D:\\Web\\Web site\\Yvan', options);
 
-        walker.on('directories', function(root, dirStatsArray, next) {
-            // dirStatsArray is an array of `stat` objects with the additional attributes
-            // * type
-            // * error
-            // * name
-            next();
-        });
+            walker.on('directories', function(root, dirStatsArray, next) {
+                // dirStatsArray is an array of `stat` objects with the additional attributes
+                // * type
+                // * error
+                // * name
+                next();
+            });
 
-        walker.on('file', function(root, fileStats, next) {
-            //  check for images
-            var typetest = false;
-            for (var i = 0; i < imagetype.length; i++) {
-                typetest = typetest || fileStats.name.indexOf(imagetype[i]) !== -1;
-            }
-            //  All images are kept in the v8x6 folder
-            if (root.indexOf('v8x6') !== -1 && typetest) {
-                var dirSplit = root.split('\\');
-                var fork = '';
-                if (dirSplit[2].indexOf('2') !== -1) {
-                    fork = ' 2';
+            walker.on('file', function(root, fileStats, next) {
+                //  check for images
+                var typetest = false;
+                for (var i = 0; i < imagetype.length; i++) {
+                    typetest = typetest || fileStats.name.indexOf(imagetype[i]) !== -1;
                 }
-                var path = 'file:///d:/' + 'Web Photos\/my photos' + fork + '\/' + dirSplit[3] +  '\/' + dirSplit[4] +  '\/' + fileStats.name;
-                var findex = localbasenav.indexOf(dirSplit[3]);
-                if (fork !== '') {
-                    findex += 2;
+                //  All images are kept in the v8x6 folder
+                if (root.indexOf('v8x6') !== -1 && typetest) {
+                    var dirSplit = root.split('\\');
+                    var fork = '';
+                    if (dirSplit[2].indexOf('2') !== -1) {
+                        fork = ' 2';
+                    }
+                    var path = 'file:///d:/' + 'Web Photos\/my photos' + fork + '\/' + dirSplit[3] +  '\/' + dirSplit[4] +  '\/' + fileStats.name;
+                    var findex = localbasenav.indexOf(dirSplit[3]);
+                    if (fork !== '') {
+                        findex += 2;
+                    }
+                    recordCheck += 1;
+                    collection.findOne({theme: dirSplit[3], folder: dirSplit[4], subfolder: dirSplit[5], filename: fileStats.name}, function(err, results) {
+                        if (err) {
+                            findErrorNum += 1;
+                            console.log('error when looking up: ',fileStats.name);
+                            if (walkerEnd) {
+                                oncomplete();
+                            }
+                        }
+                        if (!results) {
+                            photoList.push({theme: dirSplit[3], folder: dirSplit[4], filename: fileStats.name});
+                            totalCount += 1;
+                            if (walkerEnd) {
+                                oncomplete();
+                            }
+                        } else {
+                            recordFound += 1;
+                            if (walkerEnd) {
+                                oncomplete();
+                            }
+                        }
+                    });
                 }
-                var folderdata = [];
-                folderdata[0] = basenav[findex];
-                folderdata[1] = path;
-                folderdata[2] = dirSplit[4];
-                folderArray.push(folderdata);
-            }
-            next();
-        });
+                next();
+            });
 
-        walker.on('errors', function(root, nodeStatsArray, next) {
-            next();
-        });
+            walker.on('errors', function(root, nodeStatsArray, next) {
+                next();
+            });
 
-        walker.on('end', function() {
-            lookupList();
-            console.log('folder walk completed', folderList.length, folderArray.length, category);
-            //res.render('managemedia', {basenav: basenav, category: category, folderArray: folderArray, folderList: folderList});
-            //res.render('managemedia', {category: category});
-            res.json({basenav: basenav, category: category, folderArray: folderArray, folderList: folderList});
+            walker.on('end', function() {
+                console.log('folder walk completed with ',recordCheck, ' records checked, records found: ',recordFound, ' and records added: ',totalCount);
+                walkerEnd = true;
+                oncomplete();
+            });
         });
     });
 
-    adminrouter.route('/addphotos').get(function(req, res) {
+    adminrouter.route('/addphotos/:id').get(function(req, res) {
 
         //  To read the exif data on most recent photos
         var ExifImage = require('exif').ExifImage;
@@ -160,6 +212,14 @@ var router = function(basenav, localbasenav, category) {
         var recordFound = 0;
         var walkerEnd = false;
 
+        var folderStart = req.params.id;
+        var pathSplit = folderStart.split(',');
+        var fork = '';
+        if (pathSplit[0].indexOf('Vielles') !== -1) {
+            fork = ' 2';
+        }
+        var pathStart = 'D:\\Web\\Web site' + fork + '\\' + localbasenav[basenav.indexOf(pathSplit[0])] + '\\' + pathSplit[1];
+
         //  Here is the database
         var url = 'mongodb://localhost:27017/library';
         mongodb.connect(url, function(err,db) {
@@ -179,10 +239,8 @@ var router = function(basenav, localbasenav, category) {
 
             //  This code is meant to be run on the local machine to update the database and then copy the database to the web server
             //  because the subfolders exists only on the local machine
-            //  walker = walk.walk('D:\\Web\\Web site\\Famille\\Alaska\ 2005\ v3\ Denali', options);
-            //  walker = walk.walk('D:\\Web\\Web site\\Yvan\\Agra\ 1990', options);
-            //  walker = walk.walk('D:\\Web\\Web site\\Yvan\\Bahamas\ Diving\ March\ 2011', options);
-            walker = walk.walk('D:\\Web\\Web site\\Yvan\\Turk\ and\ Caicos', options);
+
+            walker = walk.walk(pathStart, options);
 
             walker.on('directories', function(root, dirStatsArray, next) {
                 // dirStatsArray is an array of `stat` objects with the additional attributes
@@ -214,10 +272,11 @@ var router = function(basenav, localbasenav, category) {
                         text = iconv.decode(binary, 'ISO-8859-1');
                         if (text.includes('Aucune description')) {
                             text = null;
-                        }
-                        var nextline = text.indexOf('\n');
-                        if (nextline !== -1) {
-                            text = text.slice(0,nextline);
+                        } else {
+                            var nextline = text.indexOf('\n');
+                            if (nextline !== -1) {
+                                text = text.slice(0,nextline);
+                            }
                         }
                         //  generated an error recently after moving DB opening above???  Works OK without fs.close() now
                         //  fs.close();
