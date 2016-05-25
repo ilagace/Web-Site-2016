@@ -11,7 +11,7 @@ var session = require('express-session');
 
 var basenav = ['Ivan', 'Alex', 'Alex et les Lagacé', 'Alex et les Cantin', 'Vieilles Photos Lagace', 'Vieilles Photos Cantin'];
 var localbasenav = ['Yvan', 'Famille', 'Lagace', 'Cantin', 'Lagace', 'Cantin'];
-var category = ['Mountains', 'Sea', 'Cities', 'Friendship', 'Family', 'Culture', 'Sports'];
+var category = ['Mountains', 'Sea', 'Cities', 'Friendship', 'Nature', 'Family', 'Culture', 'Sports'];
 var indexnav = 0;
 var pagesize = 80;
 var indexskip = '0';
@@ -19,7 +19,7 @@ var indexskip = '0';
 var navrouter = require('./src/routes/navroutes')(basenav, localbasenav, indexnav, indexskip, pagesize);
 var adminrouter = require('./src/routes/adminroutes')(basenav, localbasenav, category);
 var searchrouter = require('./src/routes/searchroutes')(basenav, localbasenav);
-var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav);
+var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav, category);
 
 app.use(express.static('public'));
 app.use('/navigation', express.static('public'));
