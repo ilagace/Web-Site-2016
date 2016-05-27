@@ -31,9 +31,9 @@ var router = function(basenav, localbasenav, category) {
             var collection = db.collection('IvanPhotos');
             var dirSplit = req.body.photo.split('/');
             collection.updateOne({theme: localbasenav[basenav.indexOf(dirSplit[1])], folder: dirSplit[2], filename: dirSplit[3]},
-                                 {$set: {category: req.body.category}}
+                                 {$set: {category: req.body.category, description: req.body.description}}
                                 );
-            console.log('Category inserted: ', req.body.category);
+            console.log(req.body.category, req.body.description);
             db.close();
             res.send({result:'success'});
         });
@@ -51,7 +51,7 @@ var router = function(basenav, localbasenav, category) {
         var url = 'mongodb://localhost:27017/library';
         mongodb.connect(url, function(err,db) {
             var collection = db.collection('IvanPhotos');
-            collection.find({},{theme:1, folder:1, filename:1, category:1}).sort({theme:1}).toArray(function(err, results) {
+            collection.find({},{theme:1, folder:1, filename:1, category:1, description:1}).sort({theme:1}).toArray(function(err, results) {
                 if (results) {
                     var prevtheme = results[0].theme;
                     var prevfolder = '';
@@ -70,7 +70,7 @@ var router = function(basenav, localbasenav, category) {
                             photoSet = [];
                         }
                         photoSet.push(['assets/' + basenav[localbasenav.indexOf(results[i].theme)] + '/' +
-                            results[i].folder + '/' + results[i].filename, results[i].category]);
+                            results[i].folder + '/' + results[i].filename, results[i].category, results[i].description]);
                         photoArray[pkey] = photoSet;
                     }
                     folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet;
@@ -219,7 +219,7 @@ var router = function(basenav, localbasenav, category) {
         };
 
         //  Build an array of data for each photos on the web site
-        var imagetype = ['.jpg', 'JPG','.bmp'];
+        var imagetype = ['.jpg', 'JPG','.bmp','m4v'];
         var photocounter = 0;
         var totalCount = 0;
         var findErrorNum = 0;
@@ -276,25 +276,31 @@ var router = function(basenav, localbasenav, category) {
                     var dirSplit = root.split('\\');
                     var path = dirSplit[0] +  '\\' + 'Web Photos\\my photos' + '\\' + dirSplit[3] +  '\\' + dirSplit[4] +  '\\' + fileStats.name;
 
-                    // Get the text for the description if it exists
-                    var pathtxt = root.slice(0,root.indexOf(dirSplit[5])) +
-                                fileStats.name.slice(0,fileStats.name.indexOf('.')) +
-                                '.txt';
+                    // Check for movies
+                    var mediaType = 'photo';
                     var text = null;
-                    if (fs.existsSync(pathtxt)) {
-                        //  Text files are encoded in latin-1 aka ISO-8859-1
-                        var binary = String(fs.readFileSync(pathtxt, {encoding: 'binary'}));
-                        text = iconv.decode(binary, 'ISO-8859-1');
-                        if (text.includes('Aucune description')) {
-                            text = null;
-                        } else {
-                            var nextline = text.indexOf('\n');
-                            if (nextline !== -1) {
-                                text = text.slice(0,nextline);
+                    if (fileStats.name.indexOf('m4v') !== -1) {
+                        mediaType = 'video';
+                    } else {
+                        // Get the text for the description if it exists
+                        var pathtxt = root.slice(0,root.indexOf(dirSplit[5])) +
+                                    fileStats.name.slice(0,fileStats.name.indexOf('.')) +
+                                    '.txt';
+                        if (fs.existsSync(pathtxt)) {
+                            //  Text files are encoded in latin-1 aka ISO-8859-1
+                            var binary = String(fs.readFileSync(pathtxt, {encoding: 'binary'}));
+                            text = iconv.decode(binary, 'ISO-8859-1');
+                            if (text.includes('Aucune description')) {
+                                text = null;
+                            } else {
+                                var nextline = text.indexOf('\n');
+                                if (nextline !== -1) {
+                                    text = text.slice(0,nextline);
+                                }
                             }
+                            //  generated an error recently after moving DB opening above???  Works OK without fs.close() now
+                            //  fs.close();
                         }
-                        //  generated an error recently after moving DB opening above???  Works OK without fs.close() now
-                        //  fs.close();
                     }
                     // We are now inside the image folder and we check first if photo/video already in database
                     recordCheck += 1;
@@ -313,11 +319,7 @@ var router = function(basenav, localbasenav, category) {
                             try {
                                 var exifStat = new ExifImage({image : path}, function (error, exifData) {
                                     if (error) {
-                                        // No exif data, get image size using image-size module
-                                        var sizeOf = require('image-size');
-                                        var dimensions = sizeOf(path);
-                                        var fsmtime = JSON.stringify(fileStats.mtime);
-                                        // Look up the photo year in folder name if no exif
+                                        // Look up the media year in folder name if no exif
                                         var yearind99 = dirSplit[4].indexOf(' 19');
                                         var yearind20 = dirSplit[4].indexOf(' 20');
                                         var yeardata = '1900';
@@ -327,25 +329,52 @@ var router = function(basenav, localbasenav, category) {
                                         if (yearind20 !== -1) {
                                             yeardata = dirSplit[4].substring(yearind20 + 1,yearind20 + 5);
                                         }
-                                        var datanoexif = {theme: dirSplit[3],
-                                                    folder: dirSplit[4],
-                                                    subfolder: dirSplit[5],
-                                                    filename: fileStats.name,
-                                                    description: text,
-                                                    weblink: null,
-                                                    exifDate: fsmtime.slice(1,11) + ' ' + fsmtime.slice(12,20),
-                                                    year: yeardata,
-                                                    photoDimW: dimensions.width,
-                                                    photoDimH: dimensions.height,
-                                                    camera: 'Scanned',
-                                                    gpsLatRef: null,
-                                                    gpsLat: null,
-                                                    gpsLongRef: null,
-                                                    gpsLong: null,
-                                                    reverseGeo: null,
-                                                    mediaType: 'photo',
-                                                    category: null
-                                                    };
+                                        var datanoexif = {};
+                                        if (mediaType === 'video') {
+                                            datanoexif = {theme: dirSplit[3],
+                                                        folder: dirSplit[4],
+                                                        subfolder: dirSplit[5],
+                                                        filename: fileStats.name.replace('.m4v','.mp4'),
+                                                        description: text,
+                                                        weblink: null,
+                                                        exifDate: null,
+                                                        year: yeardata,
+                                                        photoDimW: null,
+                                                        photoDimH: null,
+                                                        camera: 'Video',
+                                                        gpsLatRef: null,
+                                                        gpsLat: null,
+                                                        gpsLongRef: null,
+                                                        gpsLong: null,
+                                                        reverseGeo: null,
+                                                        mediaType: mediaType,
+                                                        category: null
+                                                        };
+                                        } else {
+                                            // No exif data, get image size using image-size module
+                                            var sizeOf = require('image-size');
+                                            var dimensions = sizeOf(path);
+                                            var fsmtime = JSON.stringify(fileStats.mtime);
+                                            datanoexif = {theme: dirSplit[3],
+                                                        folder: dirSplit[4],
+                                                        subfolder: dirSplit[5],
+                                                        filename: fileStats.name,
+                                                        description: text,
+                                                        weblink: null,
+                                                        exifDate: fsmtime.slice(1,11) + ' ' + fsmtime.slice(12,20),
+                                                        year: yeardata,
+                                                        photoDimW: dimensions.width,
+                                                        photoDimH: dimensions.height,
+                                                        camera: 'Scanned',
+                                                        gpsLatRef: null,
+                                                        gpsLat: null,
+                                                        gpsLongRef: null,
+                                                        gpsLong: null,
+                                                        reverseGeo: null,
+                                                        mediaType: mediaType,
+                                                        category: null
+                                                        };
+                                        }
                                         collection.insertOne(datanoexif, function(err, result) {
                                             photocounter -= 1;
                                             totalCount += 1;

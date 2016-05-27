@@ -47,13 +47,19 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
         var folder = req.params.id;
         var url = 'mongodb://localhost:27017/library';
         mongodb.connect(url, function(err, db) {
-            console.log(err);
             var collection = db.collection('IvanPhotos');
             var photocount = 0;
+            var isMovie = false;
+            collection.findOne({folder: folder, mediaType: 'video'}, function(err, results) {
+                if (results) {
+                    // Test for movies and remove them but set the flag
+                    isMovie = true;
+                }
+            });
             collection.count({folder: folder}, function(err, results) {
                 photocount = results;
             });
-            collection.find({folder: folder}).sort({exifdate: 1, filename: 1}).limit(pagesize).skip(indexnav).toArray(function(err, results) {
+            collection.find({folder: folder, mediaType: 'photo'}).sort({exifdate: 1, filename: 1}).limit(pagesize).skip(indexnav).toArray(function(err, results) {
                 if (results) {
                     var themeid = localbasenav.indexOf(results[0].theme);
                     //  check if we are at the end of the folder
@@ -62,6 +68,37 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                         photoend =  false;
                     }
                     res.render('photos',  {nav: ['Back', 'Theme'],
+                                link: ['/navigation/' + themeid, '/navigation/'] ,
+                                theme: basenav[themeid], results: results,
+                                pagesize: pagesize, indexnav: indexnav, photoend: photoend,
+                                isMovie: isMovie
+                                });
+                } else {
+                    res.render('navigation', {nav: basenav, link: '/navigation/'});
+                }
+                db.close();
+            });
+        });
+    };
+
+    var showVideo = function (req, res) {
+        var folder = req.params.id;
+        var url = 'mongodb://localhost:27017/library';
+        mongodb.connect(url, function(err, db) {
+            var collection = db.collection('IvanPhotos');
+            var photocount = 0;
+            collection.count({folder: folder}, function(err, results) {
+                photocount = results;
+            });
+            collection.find({folder: folder, mediaType: 'video'}).sort({exifdate: 1, filename: 1}).limit(pagesize).skip(indexnav).toArray(function(err, results) {
+                if (results) {
+                    var themeid = localbasenav.indexOf(results[0].theme);
+                    //  check if we are at the end of the folder
+                    var photoend = true;
+                    if (photocount > (indexnav + results.length)) {
+                        photoend =  false;
+                    }
+                    res.render('videos',  {nav: ['Back', 'Theme'],
                                 link: ['/navigation/' + themeid, '/navigation/'] ,
                                 theme: basenav[themeid], results: results,
                                 pagesize: pagesize, indexnav: indexnav, photoend: photoend
@@ -79,6 +116,7 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
         getByTheme: getByTheme,
         getSkipIndex: getSkipIndex,
         getInFolder: getInFolder,
+        showVideo: showVideo,
         middleware: middleware
     };
 };

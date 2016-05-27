@@ -13,7 +13,7 @@ var basenav = ['Ivan', 'Alex', 'Alex et les Lagacé', 'Alex et les Cantin', 'Vie
 var localbasenav = ['Yvan', 'Famille', 'Lagace', 'Cantin', 'Lagace', 'Cantin'];
 var category = ['Mountains', 'Sea', 'Cities', 'Friendship', 'Nature', 'Family', 'Culture', 'Sports'];
 var indexnav = 0;
-var pagesize = 80;
+var pagesize = 30;
 var indexskip = '0';
 
 var navrouter = require('./src/routes/navroutes')(basenav, localbasenav, indexnav, indexskip, pagesize);
@@ -25,7 +25,9 @@ app.use(express.static('public'));
 app.use('/navigation', express.static('public'));
 app.use('/gallery', express.static('public'));
 app.use('/navigation/folder', express.static('public'));
+app.use('/navigation/video', express.static('public'));
 app.use('/navigation/folder/assets', express.static('public'));
+app.use('/navigation/video/assets', express.static('public'));
 app.use('/admin/contact', express.static('public'));
 app.use('/admin/managemedia', express.static('public'));
 app.use('/admin/searchmedia', express.static('public'));

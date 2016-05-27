@@ -19,6 +19,8 @@ var router = function(basenav, localbasenav, indexnav, indexskip, pagesize) {
 
     navrouter.route('/folder/:id/:page').get(navController.getSkipIndex);
 
+    navrouter.route('/video/:id').get(navController.showVideo);
+
     return navrouter;
 
 };
