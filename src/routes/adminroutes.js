@@ -8,6 +8,8 @@ var GoogleMapsAPI = require('googlemaps');
 
 var iconv = require('iconv-lite');
 
+var imagetype = ['.jpg', 'JPG','.bmp','m4v','avi'];
+
 var router = function(basenav, localbasenav, category) {
 
     //  To do a walkthrough of all the photos for my web site
@@ -69,11 +71,14 @@ var router = function(basenav, localbasenav, category) {
                             pkey = basenav[localbasenav.indexOf(results[i].theme)] + results[i].folder;
                             photoSet = [];
                         }
-                        photoSet.push(['assets/' + basenav[localbasenav.indexOf(results[i].theme)] + '/' +
-                            results[i].folder + '/' + results[i].filename, results[i].category, results[i].description]);
-                        photoArray[pkey] = photoSet;
+                        // Do not include movies here
+                        if (results[i].filename.indexOf('mp4') === -1) {
+                            photoSet.push(['assets/' + basenav[localbasenav.indexOf(results[i].theme)] + '/' +
+                                results[i].folder + '/' + results[i].filename, results[i].category, results[i].description]);
+                        }
+                        photoArray[pkey] = photoSet.sort();
                     }
-                    folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet;
+                    folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet.sort();
                     db.close();
                     res.json({basenav: basenav, category: category, photoArray: photoArray, folderList: folderList});
                 }
@@ -84,7 +89,6 @@ var router = function(basenav, localbasenav, category) {
     adminrouter.route('/searchfolder').get(function(req, res) {
 
         console.log('search being called...please wait');
-        var imagetype = ['.jpg', 'JPG','.bmp'];
         var photocounter = 0;
         var totalCount = 0;
         var findErrorNum = 0;
@@ -96,6 +100,9 @@ var router = function(basenav, localbasenav, category) {
         var folderList = {};
         var photoList = [];
         var pkey = '';
+
+        // Do not check for movies
+        var phototype = ['.jpg', 'JPG','.bmp'];
 
         var url = 'mongodb://localhost:27017/library';
         mongodb.connect(url, function(err,db) {
@@ -124,9 +131,9 @@ var router = function(basenav, localbasenav, category) {
                         }
                         photoSet.push('assets/' + basenav[localbasenav.indexOf(photoList[i].theme)] + '/' +
                             photoList[i].folder + '/' + photoList[i].filename);
-                        photoArray[pkey] = photoSet;
+                        photoArray[pkey] = photoSet.sort();
                     }
-                    folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet;
+                    folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet.sort();
                     res.json({basenav: basenav, photoArray: photoArray, folderList: folderList});
                 }
             }
@@ -145,8 +152,8 @@ var router = function(basenav, localbasenav, category) {
             walker.on('file', function(root, fileStats, next) {
                 //  check for images
                 var typetest = false;
-                for (var i = 0; i < imagetype.length; i++) {
-                    typetest = typetest || fileStats.name.indexOf(imagetype[i]) !== -1;
+                for (var i = 0; i < phototype.length; i++) {
+                    typetest = typetest || fileStats.name.indexOf(phototype[i]) !== -1;
                 }
                 //  All images are kept in the v8x6 folder
                 if (root.indexOf('v8x6') !== -1 && typetest) {
@@ -219,7 +226,6 @@ var router = function(basenav, localbasenav, category) {
         };
 
         //  Build an array of data for each photos on the web site
-        var imagetype = ['.jpg', 'JPG','.bmp','m4v'];
         var photocounter = 0;
         var totalCount = 0;
         var findErrorNum = 0;
@@ -279,7 +285,8 @@ var router = function(basenav, localbasenav, category) {
                     // Check for movies
                     var mediaType = 'photo';
                     var text = null;
-                    if (fileStats.name.indexOf('m4v') !== -1) {
+                    if (fileStats.name.indexOf('m4v') !== -1 || fileStats.name.indexOf('avi') !== -1) {
+                        console.log(fileStats.name);
                         mediaType = 'video';
                     } else {
                         // Get the text for the description if it exists
@@ -334,7 +341,7 @@ var router = function(basenav, localbasenav, category) {
                                             datanoexif = {theme: dirSplit[3],
                                                         folder: dirSplit[4],
                                                         subfolder: dirSplit[5],
-                                                        filename: fileStats.name.replace('.m4v','.mp4'),
+                                                        filename: fileStats.name.replace('.m4v','.mp4').replace('.avi','.mp4'),
                                                         description: text,
                                                         weblink: null,
                                                         exifDate: null,

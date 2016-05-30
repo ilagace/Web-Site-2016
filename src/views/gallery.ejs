@@ -61,8 +61,9 @@
             <div>
                 <% for(var i =0; i < photoArray.length;i++) {%>
                     <figure >
-                       <a href="<%=photoArray[i][0]%>" data-lightbox="studio2" class="photostack-img"><img class="img-responsive"
-                        src="<%=photoArray[i][0]%>"/></a>
+                       <a href="<%=photoArray[i][0]%>" data-lightbox="studio2" class="photostack-img"
+                            ><img class="img-responsive"
+                            src="<%=photoArray[i][0]%>" alt="<%=photoArray[i][1]%>, <%=photoArray[i][2]%>" id="photo<%=i%>"/></a>
                         <figcaption>
                             <h2 class="photostack-title"><%=photoArray[i][1]%></h2>
                         </figcaption>
@@ -99,6 +100,6 @@
     <script src="js/classie.js"></script>
     <script src="js/photostack.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/lightbox.js"></script>
+    <script src="js/lightbox.ejs"></script>
 </body>
 </html>

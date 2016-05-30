@@ -74,7 +74,9 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-4">
                         <form name="descForm" ng-controller="DescController"
                                               ng-submit="addDesc(desc)">
                             <fieldset class="form-group" ng-disabled="disable">
@@ -103,7 +105,7 @@
                 </div>
                 <section ng-controller="TabController2 as tab2" class="ng-scope">
                     <div class="col-md-2">
-                        <ul class="nav nav-pills active">
+                        <ul class="nav nav-pills">
                             <li ng-class="{ active:tab2.isSet($index) }" ng-repeat='fold in folder'>
                                 <a href="" ng-click="tab2.setTab($index)">{{fold}}</a>
                             </li>
