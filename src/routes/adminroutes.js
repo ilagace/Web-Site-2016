@@ -120,26 +120,26 @@ var router = function(basenav, localbasenav, category) {
                     for (var i = 0; i < photoList.length; i++) {
                         if (photoList[i].theme !== prevtheme || photoList[i].folder !== prevfolder) {
                             if (photoList[i].theme !== prevtheme) {
-                                folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet;
+                                folderList[prevtheme] = folderSet;
                                 folderSet = [];
                             }
                             folderSet.push(photoList[i].folder);
                             prevtheme = photoList[i].theme;
                             prevfolder = photoList[i].folder;
-                            pkey = basenav[localbasenav.indexOf(photoList[i].theme)] + ',' + photoList[i].folder;
+                            pkey = photoList[i].theme + ',' + photoList[i].folder;
                             photoSet = [];
                         }
-                        photoSet.push('assets/' + basenav[localbasenav.indexOf(photoList[i].theme)] + '/' +
+                        photoSet.push('assets/' + photoList[i].theme + '/' +
                             photoList[i].folder + '/' + photoList[i].filename);
                         photoArray[pkey] = photoSet.sort();
                     }
-                    folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet.sort();
+                    folderList[prevtheme] = folderSet.sort();
                     res.json({basenav: basenav, photoArray: photoArray, folderList: folderList});
                 }
             }
 
             //walker = walk.walk('D:\\Web', options);
-            walker = walk.walk('D:\\Web\\Web site\\Yvan', options);
+            walker = walk.walk('D:\\Web', options);
 
             walker.on('directories', function(root, dirStatsArray, next) {
                 // dirStatsArray is an array of `stat` objects with the additional attributes
@@ -163,10 +163,7 @@ var router = function(basenav, localbasenav, category) {
                         fork = ' 2';
                     }
                     var path = 'file:///d:/' + 'Web Photos\/my photos' + fork + '\/' + dirSplit[3] +  '\/' + dirSplit[4] +  '\/' + fileStats.name;
-                    var findex = localbasenav.indexOf(dirSplit[3]);
-                    if (fork !== '') {
-                        findex += 2;
-                    }
+                    var basetheme = basenav[localbasenav.indexOf(dirSplit[3])];
                     recordCheck += 1;
                     collection.findOne({theme: dirSplit[3], folder: dirSplit[4], subfolder: dirSplit[5], filename: fileStats.name}, function(err, results) {
                         if (err) {
@@ -177,7 +174,7 @@ var router = function(basenav, localbasenav, category) {
                             }
                         }
                         if (!results) {
-                            photoList.push({theme: dirSplit[3], folder: dirSplit[4], filename: fileStats.name});
+                            photoList.push({theme: basetheme, folder: dirSplit[4], filename: fileStats.name});
                             totalCount += 1;
                             if (walkerEnd) {
                                 oncomplete();
@@ -236,7 +233,7 @@ var router = function(basenav, localbasenav, category) {
         var folderStart = req.params.id;
         var pathSplit = folderStart.split(',');
         var fork = '';
-        if (pathSplit[0].indexOf('Vielles') !== -1) {
+        if (pathSplit[0].indexOf('Vieilles') !== -1) {
             fork = ' 2';
         }
         var pathStart = 'D:\\Web\\Web site' + fork + '\\' + localbasenav[basenav.indexOf(pathSplit[0])] + '\\' + pathSplit[1];
@@ -280,7 +277,11 @@ var router = function(basenav, localbasenav, category) {
                 //  All images are kept in the v8x6 folder
                 if (root.indexOf('v8x6') !== -1 && typetest) {
                     var dirSplit = root.split('\\');
-                    var path = dirSplit[0] +  '\\' + 'Web Photos\\my photos' + '\\' + dirSplit[3] +  '\\' + dirSplit[4] +  '\\' + fileStats.name;
+                    var fork = '';
+                    if (dirSplit[3].indexOf('2') !== -1) {
+                        fork = ' 2';
+                    }
+                    var path = dirSplit[0] +  '\\' + 'Web Photos\\my photos' + fork + '\\' + dirSplit[3] +  '\\' + dirSplit[4] +  '\\' + fileStats.name;
 
                     // Check for movies
                     var mediaType = 'photo';
@@ -293,6 +294,7 @@ var router = function(basenav, localbasenav, category) {
                         var pathtxt = root.slice(0,root.indexOf(dirSplit[5])) +
                                     fileStats.name.slice(0,fileStats.name.indexOf('.')) +
                                     '.txt';
+
                         if (fs.existsSync(pathtxt)) {
                             //  Text files are encoded in latin-1 aka ISO-8859-1
                             var binary = String(fs.readFileSync(pathtxt, {encoding: 'binary'}));
@@ -391,7 +393,10 @@ var router = function(basenav, localbasenav, category) {
                                         });
                                     } else {
                                         // We have some exif data here
-                                        var yearexif = exifData.exif.DateTimeOriginal.slice(0,4);
+                                        var yearexif = 2000;
+                                        if (typeof exifData.exif.DateTimeOriginal !== 'undefined') {
+                                            yearexif = exifData.exif.DateTimeOriginal.slice(0,4);
+                                        }
                                         var dataexif = {theme: dirSplit[3],
                                                 folder: dirSplit[4],
                                                 subfolder: dirSplit[5],

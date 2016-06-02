@@ -62,14 +62,14 @@
                         </div>
                         <div id="gallery-header-center-right">
                             <% if (indexnav > 0) {%>
-                                <a href="/navigation/folder/<%=results[i].folder%>/-" class="gallery-header-center-right-links" id="prevpage">...Prev</a>
+                                <a href="/navigation/folder/<%=results[0].folder%>/-" class="gallery-header-center-right-links" id="prevpage">...Prev</a>
                             <%}%>
                             <% for(var i = 1; i < (results.length/10) + 1; i++) {%>
                                 <div class="gallery-header-center-right-links" alt="<%=results[(i-1)*10].subfolder%>" id="filter-<%=i%>"><%=i+Math.floor(indexnav/10)%>
                                 </div>
                             <%}%>
                             <% if (!photoend) {%>
-                                <a href="/navigation/folder/<%=results[i].folder%>/+" class="gallery-header-center-right-links" id="nextpage">Next...</a>
+                                <a href="/navigation/folder/<%=results[0].folder%>/+" class="gallery-header-center-right-links" id="nextpage">Next...</a>
                             <%}%>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                     <div class="row">
                         <div class="col-md-5">
                         </div>
-                        <a class="nav nav-pills active" href="/navigation/video/<%=results[i].folder%>" >Click to see Videos</a><br>
+                        <a class="nav nav-pills active" href="/navigation/video/<%=results[0].folder%>" >Click to see Videos</a><br>
                     </div>
                 <%}%>
                 <div id="gallery-content">
