@@ -1,7 +1,7 @@
-/*!
- * Start Bootstrap - Full Slider HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+/*
+ * Start Bootstrap - Full Slider (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
 html,
@@ -33,29 +33,4 @@ body {
 
 footer {
     margin: 50px 0;
-}
-@media (max-width: 1090px){
-    div.canvas {
-      /*margin-top: -50px !important;*/
-      height: 110% !important;
-    }
-    .carousel, .item, .active {
-  height: 110% !important;
-  margin-top: -50px !important;
-}
-}
-/* Fade transition for carousel items */
-.carousel .item {
-    -webkit-transition: opacity 3s; 
-    -moz-transition: opacity 3s; 
-    -ms-transition: opacity 3s; 
-    -o-transition: opacity 3s; 
-    transition: opacity 3s;
-    transition:.6s;
-}
-.carousel .active.left {
-    left:0;opacity:0;z-index:2;
-}
-.carousel .next {
-    left:0;opacity:1;z-index:1;
 }
