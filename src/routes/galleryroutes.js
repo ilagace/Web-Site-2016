@@ -23,6 +23,7 @@ var router = function(basenav, localbasenav, category) {
                                         results[i].folder + '/' + results[i].filename, results[i].description, results[i].reverseGeo]);
                     }
                 }
+                console.log(photoArray);
                 db.close();
                 res.render('gallery', {photoArray: photoArray, category: category, categ: category.indexOf(categ)});
             });
