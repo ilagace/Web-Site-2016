@@ -10,7 +10,7 @@ var passport = require('passport');
 var session = require('express-session');
 
 var basenav = ['Ivan', 'Alex', 'Alex et les Lagacé', 'Alex et les Cantin', 'Vieilles Photos Lagace', 'Vieilles Photos Cantin'];
-var localbasenav = ['Yvan', 'Famille', 'Lagace', 'Cantin', 'Lagace', 'Cantin'];
+var localbasenav = ['Yvan', 'Famille', 'Lagace', 'Cantin', 'Lagace 2', 'Cantin 2'];
 var category = ['Mountains', 'Sea', 'Cities', 'Friendship', 'Nature', 'Family', 'Culture', 'Sports'];
 var indexnav = 0;
 var pagesize = 30;
