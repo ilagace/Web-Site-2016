@@ -31,12 +31,14 @@ app.use('/navigation/video/assets', express.static('public'));
 app.use('/admin/contact', express.static('public'));
 app.use('/admin/managemedia', express.static('public'));
 app.use('/admin/searchmedia', express.static('public'));
+app.use('/admin/signin', express.static('public'));
 app.set('views','./src/views');
 
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(session({secret: 'ivanlibrary'}));
+
 require('./src/config/passport')(app);
 
 /* how to setup handelbars
