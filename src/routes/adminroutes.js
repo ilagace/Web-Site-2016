@@ -4,6 +4,18 @@ var mongodb = require('mongodb').MongoClient;
 
 var adminrouter = express.Router();
 
+var passport = require('passport');
+
+// route middleware to make sure a user is logged in
+function isLoggedIn(req, res, next) {
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    // if they aren't redirect them to the signin page
+    res.render('signin');
+}
+
 var GoogleMapsAPI = require('googlemaps');
 
 var iconv = require('iconv-lite');
@@ -21,8 +33,21 @@ var router = function(basenav, localbasenav, category) {
         // directories with these keys will be skipped                 ,
         filters: ['thumb']
     };
+
+    //  Allow only the owner to the Admin pages
+    adminrouter.route('/signin').post(passport.authenticate('local',
+            {failureRedirect: '/', successRedirect: '/admin/managemedia'}));
+
+    //adminrouter.route('/signin').get(function(req, res) {
+    //    res.render('signin');
+    //});
+
+    adminrouter.route('/signin').get(isLoggedIn, function(req, res) {
+        res.redirect('/admin/managemedia');
+    });
+
     //  Angular will handle the data for the page by calling /managemedia and eventually /searchmedia
-    adminrouter.route('/managemedia').get(function(req, res) {
+    adminrouter.route('/managemedia').get(isLoggedIn, function(req, res) {
         res.render('managemedia');
     });
 

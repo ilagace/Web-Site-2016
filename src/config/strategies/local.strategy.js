@@ -5,7 +5,7 @@ var mongodb = require('mongodb').MongoClient;
 
 module.exports = function() {
     passport.use(new LocalStrategy({
-            usernameField: 'userName',
+            usernameField: 'username',
             passwordField: 'password'
         }, function(username, password, done) {
             var url = 'mongodb://localhost:27017/library';
@@ -13,7 +13,6 @@ module.exports = function() {
                 var collection = db.collection('users');
                 collection.findOne({username: username}, function(err,results) {
                     if (results.password === password) {
-                        console.log(results);
                         var user = results;
                         done(null, user);
                     } else {
