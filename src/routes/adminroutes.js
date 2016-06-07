@@ -24,6 +24,7 @@ var iconv = require('iconv-lite');
 var imagetype = ['.jpg', 'JPG','.bmp','m4v','avi','mov','MOV'];
 
 var isNewFolder = false;
+var urlParam = '';
 
 var router = function(basenav, localbasenav, category) {
 
@@ -353,10 +354,20 @@ var router = function(basenav, localbasenav, category) {
 
     adminrouter.route('/addphotos/:id').get(function(req, res) {
         console.log(isNewFolder,req.params.id);
-        if (isNewFolder) {
-            res.redirect('/admin/addnew/' + req.params.id);
+        //  Need a workaround when I have a franch accent in parameters which disallow the redirect (a patch)
+        if (req.params.id.indexOf('é') !== -1) {
+            urlParam = req.params.id;
+            if (isNewFolder) {
+                res.redirect('/admin/addnew/0');
+            } else {
+                res.redirect('/admin/addold/0');
+            }
         } else {
-            res.redirect('/admin/addold/' + req.params.id);
+            if (isNewFolder) {
+                res.redirect('/admin/addnew/' + req.params.id);
+            } else {
+                res.redirect('/admin/addold/' + req.params.id);
+            }
         }
     });
 
@@ -388,7 +399,12 @@ var router = function(basenav, localbasenav, category) {
         var recordFound = 0;
         var walkerEnd = false;
 
-        var folderStart = req.params.id;
+        var folderStart = ''
+        if (req.params.id === '0') {
+            folderStart = urlParam;
+        } else {
+            folderStart = req.params.id;
+        }
         var pathSplit = folderStart.split(',');
         var fork = '';
         if (pathSplit[0].indexOf('Vieilles') !== -1) {
@@ -666,7 +682,12 @@ var router = function(basenav, localbasenav, category) {
         var recordFound = 0;
         var walkerEnd = false;
 
-        var folderStart = req.params.id;
+        var folderStart = ''
+        if (req.params.id === '0') {
+            folderStart = urlParam;
+        } else {
+            folderStart = req.params.id;
+        }
         var pathSplit = folderStart.split(',');
         var pathStart = 'D:\\Web New Photos' + '\\' + localbasenav[basenav.indexOf(pathSplit[0])] + '\\' + pathSplit[1];
 
