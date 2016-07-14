@@ -2,7 +2,7 @@ var express = require('express');
 
 var app = express();
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 80;
 
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -20,10 +20,12 @@ var navrouter = require('./src/routes/navroutes')(basenav, localbasenav, indexna
 var adminrouter = require('./src/routes/adminroutes')(basenav, localbasenav, category);
 var searchrouter = require('./src/routes/searchroutes')(basenav, localbasenav);
 var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav, category);
+var approuter = require('./src/routes/approutes')();
 
 app.use(express.static('public'));
 app.use('/navigation', express.static('public'));
 app.use('/gallery', express.static('public'));
+app.use('/app', express.static('public'));
 app.use('/navigation/folder', express.static('public'));
 app.use('/navigation/video', express.static('public'));
 app.use('/navigation/folder/assets', express.static('public'));
@@ -59,9 +61,10 @@ app.use('/navigation', navrouter);
 app.use('/admin', adminrouter);
 app.use('/search', searchrouter);
 app.use('/gallery', galleryrouter);
+app.use('/app', approuter);
 
 app.get('/', function (req, res) {
-    res.render('index', {title:'Splash Page'});
+    res.render('portfolio', {title:'Splash Page'});
 });
 
 app.listen(port, function (err) {

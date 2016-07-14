@@ -35,7 +35,7 @@ gulp.task('serve', ['style', 'inject'], function() {
         script: 'app.js',
         delayTime: 1,
         env: {
-            'PORT': 3000
+            'PORT': 80
         },
         watch: ['src/**/*.js']
     };
@@ -43,5 +43,5 @@ gulp.task('serve', ['style', 'inject'], function() {
     return nodemon(options)
         .on('restart', function(ev) {
             console.log('Restarting... ');
-    });
+        });
 });
