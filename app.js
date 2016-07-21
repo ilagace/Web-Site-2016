@@ -39,8 +39,6 @@ app.use('/app/comics', express.static('public'));
 app.use('/app/website', express.static('public'));
 app.use('/app/calendarH67', express.static('public'));
 app.use('/app/calendarH67/data', express.static('public'));
-app.use('/app/calendarH67m', express.static('public'));
-app.use('/app/calendarH67m/data', express.static('public'));
 app.use('/navigation/folder', express.static('public'));
 app.use('/navigation/video', express.static('public'));
 app.use('/navigation/folder/assets', express.static('public'));

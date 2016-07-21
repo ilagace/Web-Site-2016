@@ -1,6 +1,5 @@
 var mongodb = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
-var jsonfile = require('jsonfile');
 
 var appController = function() {
 
@@ -23,10 +22,8 @@ var appController = function() {
                     data[i].id = data[i]._id;
                 }
                 //output response
-                var file = '/tmp/data.json';
-                jsonfile.writeFileSync(file, data);
                 console.log('get',data[0]);
-                res.render('calendarH67');
+                res.send(data);
             });
         });
     };

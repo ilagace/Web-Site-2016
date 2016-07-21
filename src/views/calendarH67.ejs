@@ -3,7 +3,12 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="codebase/sources/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
+    <script src="codebase/ext/dhtmlxscheduler_quick_info.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="codebase/dhtmlxscheduler.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        setInterval('window.location.reload()', 30000); // NOTE: period is passed in milliseconds
+    </script>
     <style type="text/css" media="screen">
      html, body{
          margin:0px;
@@ -18,14 +23,13 @@
             scheduler.templates.xml_date = function(value) { return new Date(value); };
             scheduler.config.event_duration = 60;
             scheduler.config.scroll_hour = 6;
-            scheduler.config.xml_date = '%Y-%m-%d %H:%i';
+            scheduler.config.xml_date = '%Y/%m/%d %H:%i';
+            scheduler.config.api_date="%Y/%m/%d %H:%i";
             scheduler.config.time_step = 15;
             scheduler.config.prevent_cache = true;
             scheduler.init('scheduler_here',new Date(Date.now()),'week');
-            //  scheduler.load('/app/calendarH67/data', 'json');
-            scheduler.parse(<%=data%>,"json");
+            scheduler.load('/app/calendarH67/data','json');
             var dp = new dataProcessor('/app/calendarH67/data');
-//            dp.live_updates('http://localhost:8008/sync');
             dp.init(scheduler);
             dp.setTransactionMode('POST', false);
         }
