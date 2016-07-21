@@ -22,10 +22,25 @@ var searchrouter = require('./src/routes/searchroutes')(basenav, localbasenav);
 var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav, category);
 var approuter = require('./src/routes/approutes')();
 
+//Change starting directory as the call is via Windows Services, need to be changed on AWS so I use apprmt.js there
+console.log('Starting directory:', process.cwd());
+try {
+    process.chdir('D:/Software\ Development\ Projects/Web\ Site\ 2016');
+    console.log('New directory:', process.cwd());
+}
+catch (err) {
+    console.log('chdir:',err);
+}
+
 app.use(express.static('public'));
 app.use('/navigation', express.static('public'));
 app.use('/gallery', express.static('public'));
-app.use('/app', express.static('public'));
+app.use('/app/comics', express.static('public'));
+app.use('/app/website', express.static('public'));
+app.use('/app/calendarH67', express.static('public'));
+app.use('/app/calendarH67/data', express.static('public'));
+app.use('/app/calendarH67m', express.static('public'));
+app.use('/app/calendarH67m/data', express.static('public'));
 app.use('/navigation/folder', express.static('public'));
 app.use('/navigation/video', express.static('public'));
 app.use('/navigation/folder/assets', express.static('public'));
@@ -64,7 +79,12 @@ app.use('/gallery', galleryrouter);
 app.use('/app', approuter);
 
 app.get('/', function (req, res) {
-    res.render('portfolio', {title:'Splash Page'});
+    // console.log(req.headers['user-agent']);
+    //  if (/Mobi/.test(req.headers['user-agent'])) {
+    res.render('portfolio', {tennisLink: 'calendarH67'});
+    //  } else {
+    //     res.render('portfolio', {tennisLink: 'calendarH67'});
+    // }
 });
 
 app.listen(port, function (err) {

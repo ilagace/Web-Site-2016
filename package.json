@@ -24,6 +24,7 @@
     "http": "0.0.0",
     "image-size": "^0.5.0",
     "jade": "^1.11.0",
+    "jsonfile": "^2.3.1",
     "mongodb": "^2.1.17",
     "mongoose": "^4.4.20",
     "mssql": "^3.2.1",
