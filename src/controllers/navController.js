@@ -58,8 +58,7 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                 collection.count({folder: folder, mediaType: 'photo'}, function(err, results) {
                     photocount = results;
                     collection.find({folder: folder, mediaType: 'photo'}).sort({exifdate: 1, filename: 1}).limit(pagesize).skip(indexnav).toArray(function(err, results) {
-                        if (results) {
-                            console.log(results[0]);
+                        if (results && results[0] !== undefined) {
                             var themeid = localbasenav.indexOf(results[0].theme);
                             //  check if we are at the end of the folder
                             var photoend = true;

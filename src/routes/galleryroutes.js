@@ -19,11 +19,10 @@ var router = function(basenav, localbasenav, category) {
             collection.find({category: categ},{theme:1, folder:1, filename:1, category:1, description:1, reverseGeo:1}).toArray(function(err, results) {
                 if (results) {
                     for (var i = 0; i < results.length; i++) {
-                        photoArray.push(['assets/' + basenav[localbasenav.indexOf(results[i].theme)] + '/' +
+                        photoArray.push(['/assets/' + basenav[localbasenav.indexOf(results[i].theme)] + '/' +
                                         results[i].folder + '/' + results[i].filename, results[i].description, results[i].reverseGeo]);
                     }
                 }
-                console.log(photoArray);
                 db.close();
                 res.render('gallery', {photoArray: photoArray, category: category, categ: category.indexOf(categ)});
             });

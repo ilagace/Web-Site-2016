@@ -103,7 +103,7 @@ var router = function(basenav, localbasenav, category) {
                         }
                         // Do not include movies here
                         if (results[i].filename.indexOf('mp4') === -1) {
-                            photoSet.push(['assets/' + basenav[localbasenav.indexOf(results[i].theme)] + '/' +
+                            photoSet.push(['/assets/' + basenav[localbasenav.indexOf(results[i].theme)] + '/' +
                                 results[i].folder + '/' + results[i].filename, results[i].category, results[i].description]);
                         }
                         photoArray[pkey] = photoSet.sort();
@@ -167,7 +167,7 @@ var router = function(basenav, localbasenav, category) {
                             pkey = photoList[i].theme + ',' + photoList[i].folder;
                             photoSet = [];
                         }
-                        photoSet.push('assets/' + photoList[i].theme + '/' +
+                        photoSet.push('/assets/' + photoList[i].theme + '/' +
                             photoList[i].folder + '/' + photoList[i].filename);
                         photoArray[pkey] = photoSet.sort();
                     }
@@ -284,7 +284,7 @@ var router = function(basenav, localbasenav, category) {
                             pkey = photoList[i].theme + ',' + photoList[i].folder;
                             photoSet = [];
                         }
-                        photoSet.push('assets/' + photoList[i].theme + '/' +
+                        photoSet.push('/assets/' + photoList[i].theme + '/' +
                             photoList[i].folder + '/' + photoList[i].filename);
                         photoArray[pkey] = photoSet.sort();
                     }

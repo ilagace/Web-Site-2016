@@ -1,0 +1,237 @@
+running server on port 80
+running server on port 80
+Starting directory: ${process.cwd()}
+chdir: ${err}
+running server on port 80
+[ [ 'assets/Ivan/Arizona 1989 v.1/photos059.jpg',
+    'Grand Canyon',
+    null ],
+  [ 'assets/Ivan/Chine Nov 2006/IMG_2038.jpg',
+    'Great Wall of China',
+    null ],
+  [ 'assets/Ivan/Chine Nov 2006/IMG_2039.jpg',
+    'Great Wall of China',
+    null ],
+  [ 'assets/Ivan/Ski Les Arcs 2016/IMG_0464.JPG',
+    'Mont Blanc',
+    'GPS:Unnamed Road, 73700 Bourg-Saint-Maurice, France' ] ]
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 80
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 80
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 80
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 80
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 80
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 80
+get { _id: 579ba476b630d3883d05964b,
+  start_date: '2016/07/29 18:15',
+  end_date: '2016/07/29 19:15',
+  text: 'Opponent',
+  ISODate: 1469834100000,
+  fullname: 'Ivan Lagace',
+  court: 1,
+  id: 579ba476b630d3883d05964b }
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 80
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 3000
+[ [ 'assets/Ivan/Arizona 1989 v.1/photos059.jpg',
+    'Grand Canyon',
+    null ],
+  [ 'assets/Ivan/Chine Nov 2006/IMG_2038.jpg',
+    'Great Wall of China',
+    null ],
+  [ 'assets/Ivan/Chine Nov 2006/IMG_2039.jpg',
+    'Great Wall of China',
+    null ],
+  [ 'assets/Ivan/Ski Les Arcs 2016/IMG_0464.JPG',
+    'Mont Blanc',
+    'GPS:Unnamed Road, 73700 Bourg-Saint-Maurice, France' ] ]
+[ [ 'assets/Ivan/Bahamas Diving March 2011/DSC_1669.JPG',
+    null,
+    null ],
+  [ 'assets/Ivan/Bahamas Diving March 2011/DSC_1612.JPG',
+    'Blue Hole in Bahamas',
+    null ],
+  [ 'assets/Ivan/Bahamas Diving March 2011/DSC_1590.JPG',
+    'Diving in Bahamas',
+    null ],
+  [ 'assets/Ivan/Bahamas Diving March 2011/DSC_1420.JPG',
+    'Shark in Bahamas',
+    null ],
+  [ 'assets/Ivan/Bahamas Diving March 2011/DSC_1366.JPG',
+    'Turtle in Bahamas',
+    null ],
+  [ 'assets/Ivan/Bahamas Diving March 2011/DSC_1323.JPG',
+    'Langouste in Bahamas',
+    null ],
+  [ 'assets/Ivan/Bahamas Diving March 2011/DSC_1221.JPG',
+    'Stingray in Bahamas',
+    null ],
+  [ 'assets/Ivan/Bahamas Diving March 2011/DSC_1042.JPG',
+    'Lionfish in Bahamas',
+    null ],
+  [ 'assets/Ivan/Eastern Europe June 2015/2015-06-13-13h44m11.JPG',
+    'Isola, Slovenia',
+    'GPS:Razgled 4, 6310 Izola - Isola, Slovenia' ],
+  [ 'assets/Ivan/Afrique du Sud decembre 2004/DSCF3189.JPG',
+    'Cape of Good Hope, South Africa',
+    null ],
+  [ 'assets/Ivan/Australia May 2007/IMG_2540.JPG',
+    'Tasman Sea',
+    null ],
+  [ 'assets/Ivan/Australia September 2010/IMG_2035.JPG',
+    'Sydney Harbour',
+    null ] ]
+[ [ 'assets/Ivan/Agra 1990/photos025.jpg',
+    'Hyderabad, India',
+    null ],
+  [ 'assets/Ivan/Agra 1990/photos012.jpg', 'Agra, India', null ],
+  [ 'assets/Ivan/Zurich mai 2004/DSCF2320.jpg', 'Zurich', null ],
+  [ 'assets/Ivan/Eastern Europe June 2015/2015-06-22-08h32m51.JPG',
+    'Cesky Krumlov, Czechia',
+    null ],
+  [ 'assets/Ivan/Eastern Europe June 2015/2015-06-19-04h30m15.JPG',
+    'Vienna',
+    null ],
+  [ 'assets/Ivan/Eastern Europe June 2015/2015-06-14-11h12m16.JPG',
+    'Ljubljana, Slovenia',
+    null ],
+  [ 'assets/Ivan/Eastern Europe June 2015/2015-06-12-00h40m40.JPG',
+    'Salzburg',
+    null ],
+  [ 'assets/Ivan/Eastern Europe June 2015/2015-06-08-04h54m22.JPG',
+    'Prague',
+    null ],
+  [ 'assets/Ivan/Afrique du Sud decembre 2004/DSCF3142.JPG',
+    'Cape Town',
+    null ],
+  [ 'assets/Ivan/Australia May 2007/IMG_2638.JPG',
+    'Melbourne',
+    null ],
+  [ 'assets/Ivan/Australia September 2010/IMG_1942.JPG',
+    'Sydney',
+    null ],
+  [ 'assets/Ivan/China December 2008/IMG_0743.JPG',
+    'Shanghai',
+    null ],
+  [ 'assets/Ivan/China December 2008/IMG_0744.JPG',
+    'The Bund, Shanghai',
+    null ],
+  [ 'assets/Ivan/China December 2008/IMG_0703.JPG',
+    'Wenzhou',
+    null ],
+  [ 'assets/Ivan/Chine Nov 2006/IMG_207919.JPG', 'Beijing', null ],
+  [ 'assets/Ivan/Chine Nov 2006/IMG_2148.jpg',
+    'Old Beijing',
+    null ] ]
+[]
+[ [ 'assets/Ivan/Agra 1990/photos001.jpg',
+    'Taj Mahal, Agra, India',
+    null ],
+  [ 'assets/Ivan/Eastern Europe June 2015/2015-06-19-07h27m53.JPG',
+    'Opera House, Vienna',
+    null ],
+  [ 'assets/Ivan/Eastern Europe June 2015/2015-06-18-11h04m31.JPG',
+    'Schoenberg, Vienna',
+    null ],
+  [ 'assets/Ivan/Eastern Europe June 2015/2015-06-10-03h37m11.JPG',
+    'Dvorak Tomb',
+    null ],
+  [ 'assets/Ivan/Eastern Europe June 2015/2015-06-08-06h26m06.JPG',
+    'Strahov monastery library, Prague',
+    null ],
+  [ 'assets/Ivan/Eastern Europe June 2015/2015-06-08-04h07m59.JPG',
+    'Jewish Cemetary, Prague',
+    null ],
+  [ 'assets/Ivan/Afrique du Sud decembre 2004/DSCF3159.JPG',
+    'Cape Town',
+    null ],
+  [ 'assets/Ivan/Angleterre 1984/photos001.jpg',
+    'British Museum',
+    null ],
+  [ 'assets/Ivan/Australia May 2007/IMG_2658.JPG',
+    'National Gallery Victoria Australia',
+    null ],
+  [ 'assets/Ivan/Australia September 2010/IMG_1940.JPG',
+    'Sydney Opera House',
+    null ],
+  [ 'assets/Ivan/Cambridge and Amsterdam February 2005/DSCF3406.JPG',
+    'Great Court Cambridge University',
+    null ],
+  [ 'assets/Ivan/China December 2008/IMG_0785.JPG',
+    'Jade Garden, Shanghai',
+    null ],
+  [ 'assets/Ivan/China December 2008/IMG_0816.JPG',
+    'Street Market, Shanghai',
+    null ],
+  [ 'assets/Ivan/China December 2008/IMG_0709.JPG',
+    'Wenzhou Medical University',
+    null ],
+  [ 'assets/Ivan/Chine Nov 2006/IMG_2248.jpg',
+    'Panjiayuan Market Beijing',
+    null ],
+  [ 'assets/Ivan/Chine Nov 2006/IMG_2257.jpg',
+    'Chinese Food in Beijing',
+    null ],
+  [ 'assets/Ivan/Chine Nov 2006/IMG_2236.jpg',
+    'Summer Palace, Beijing',
+    null ],
+  [ 'assets/Ivan/Ski Les Arcs 2016/IMG_0490.JPG',
+    'Peisey, France',
+    'GPS:Unnamed Road, 73210 Peisey-Nancroix, France' ] ]
+false
+true
+search being called...please wait
+folder walk completed with  24205  records checked, records found:  3936  and records added:  20269
+A total of 20269 records were added and 24205 records checked.
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 3000
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 3000
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 3000
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 3000
+Starting directory: C:\WINDOWS\system32
+New directory: D:\Software Development Projects\Web Site 2016
+running server on port 3000
+false
+true
+search being called...please wait
+search being called...please wait
+folder walk completed with  24205  records checked, records found:  3936  and records added:  20269
+A total of 20269 records were added and 24205 records checked.
+true
+search being called...please wait
+folder walk completed with  24205  records checked, records found:  3936  and records added:  20269
+A total of 20269 records were added and 24205 records checked.
+true

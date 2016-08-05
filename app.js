@@ -2,7 +2,7 @@ var express = require('express');
 
 var app = express();
 
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 3000;
 
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -33,20 +33,7 @@ catch (err) {
 }
 
 app.use(express.static('public'));
-app.use('/navigation', express.static('public'));
-app.use('/gallery', express.static('public'));
-app.use('/app/comics', express.static('public'));
-app.use('/app/website', express.static('public'));
-app.use('/app/calendarH67', express.static('public'));
-app.use('/app/calendarH67/data', express.static('public'));
-app.use('/navigation/folder', express.static('public'));
-app.use('/navigation/video', express.static('public'));
-app.use('/navigation/folder/assets', express.static('public'));
-app.use('/navigation/video/assets', express.static('public'));
-app.use('/admin/contact', express.static('public'));
-app.use('/admin/managemedia', express.static('public'));
-app.use('/admin/searchmedia', express.static('public'));
-app.use('/admin/signin', express.static('public'));
+app.use('/', express.static('public'));
 app.set('views','./src/views');
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -74,15 +61,13 @@ app.use('/navigation', navrouter);
 app.use('/admin', adminrouter);
 app.use('/search', searchrouter);
 app.use('/gallery', galleryrouter);
-app.use('/app', approuter);
+app.use('/', approuter);
+// app.use('/app', require('./app/index').app);
 
 app.get('/', function (req, res) {
     // console.log(req.headers['user-agent']);
     //  if (/Mobi/.test(req.headers['user-agent'])) {
-    res.render('portfolio', {tennisLink: 'calendarH67'});
-    //  } else {
-    //     res.render('portfolio', {tennisLink: 'calendarH67'});
-    // }
+    res.render('portfolio');
 });
 
 app.listen(port, function (err) {
