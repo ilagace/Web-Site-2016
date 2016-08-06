@@ -2,7 +2,7 @@ var express = require('express');
 
 var app = express();
 
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 3000;
 
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -20,18 +20,10 @@ var navrouter = require('./src/routes/navroutes')(basenav, localbasenav, indexna
 var adminrouter = require('./src/routes/adminroutes')(basenav, localbasenav, category);
 var searchrouter = require('./src/routes/searchroutes')(basenav, localbasenav);
 var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav, category);
+var approuter = require('./src/routes/approutes')();
 
 app.use(express.static('public'));
-app.use('/navigation', express.static('public'));
-app.use('/gallery', express.static('public'));
-app.use('/navigation/folder', express.static('public'));
-app.use('/navigation/video', express.static('public'));
-app.use('/navigation/folder/assets', express.static('public'));
-app.use('/navigation/video/assets', express.static('public'));
-app.use('/admin/contact', express.static('public'));
-app.use('/admin/managemedia', express.static('public'));
-app.use('/admin/searchmedia', express.static('public'));
-app.use('/admin/signin', express.static('public'));
+app.use('/', express.static('public'));
 app.set('views','./src/views');
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -41,27 +33,16 @@ app.use(session({secret: 'ivanlibrary'}));
 
 require('./src/config/passport')(app);
 
-/* how to setup handelbars
-
-var handlebars = require('express-handlebars');
-
-app.engine('.hbs', handlebars({extname: '.hbs'}));
-
-app.set('view engine','.hbs');
-
-setup ejs or jade below
-
-*/
-
 app.set('view engine','ejs');
 
 app.use('/navigation', navrouter);
 app.use('/admin', adminrouter);
 app.use('/search', searchrouter);
 app.use('/gallery', galleryrouter);
+app.use('/', approuter);
 
 app.get('/', function (req, res) {
-    res.render('index', {title:'Splash Page'});
+    res.render('portfolio');
 });
 
 app.listen(port, function (err) {

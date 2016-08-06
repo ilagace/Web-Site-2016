@@ -43,18 +43,6 @@ app.use(session({secret: 'ivanlibrary'}));
 
 require('./src/config/passport')(app);
 
-/* how to setup handelbars
-
-var handlebars = require('express-handlebars');
-
-app.engine('.hbs', handlebars({extname: '.hbs'}));
-
-app.set('view engine','.hbs');
-
-setup ejs or jade below
-
-*/
-
 app.set('view engine','ejs');
 
 app.use('/navigation', navrouter);
@@ -62,11 +50,8 @@ app.use('/admin', adminrouter);
 app.use('/search', searchrouter);
 app.use('/gallery', galleryrouter);
 app.use('/', approuter);
-// app.use('/app', require('./app/index').app);
 
 app.get('/', function (req, res) {
-    // console.log(req.headers['user-agent']);
-    //  if (/Mobi/.test(req.headers['user-agent'])) {
     res.render('portfolio');
 });
 
