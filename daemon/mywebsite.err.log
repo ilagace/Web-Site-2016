@@ -244,3 +244,20 @@ Error: Failed to lookup view "g," in views directory "./src/views"
     at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
     at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
     at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+D:\Software Development Projects\node_modules\mongodb\lib\utils.js:98
+    process.nextTick(function() { throw err; });
+                                  ^
+
+TypeError: Cannot read property 'theme' of undefined
+    at oncomplete (D:\Software Development Projects\Web Site 2016\src\routes\adminroutes.js:271:49)
+    at D:\Software Development Projects\Web Site 2016\src\routes\adminroutes.js:335:33
+    at handleCallback (D:\Software Development Projects\node_modules\mongodb\lib\utils.js:96:12)
+    at D:\Software Development Projects\node_modules\mongodb\lib\collection.js:1357:5
+    at handleCallback (D:\Software Development Projects\node_modules\mongodb\lib\utils.js:96:12)
+    at D:\Software Development Projects\node_modules\mongodb\lib\cursor.js:661:5
+    at handleCallback (D:\Software Development Projects\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at nextFunction (D:\Software Development Projects\node_modules\mongodb-core\lib\cursor.js:679:5)
+    at D:\Software Development Projects\node_modules\mongodb-core\lib\cursor.js:581:7
+    at queryCallback (D:\Software Development Projects\node_modules\mongodb-core\lib\cursor.js:220:18)
+Sat, 06 Aug 2016 17:20:52 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:42:9
+Sat, 06 Aug 2016 17:20:52 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:42:9
