@@ -13,10 +13,6 @@ var router = function() {
 
     approuter.route('/:id').get(appController.getApp);
 
-    approuter.route('/calendarH67/data').get(appController.getcalendarH67);
-
-    approuter.route('/calendarH67/data').post(appController.postcalendarH67);
-
     return approuter;
 
 };

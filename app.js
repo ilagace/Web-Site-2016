@@ -49,7 +49,7 @@ app.use('/navigation', navrouter);
 app.use('/admin', adminrouter);
 app.use('/search', searchrouter);
 app.use('/gallery', galleryrouter);
-app.use('/', approuter);
+app.use('//', approuter);
 
 app.get('/', function (req, res) {
     res.render('portfolio');

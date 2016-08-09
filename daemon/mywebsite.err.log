@@ -261,3 +261,155 @@ TypeError: Cannot read property 'theme' of undefined
     at queryCallback (D:\Software Development Projects\node_modules\mongodb-core\lib\cursor.js:220:18)
 Sat, 06 Aug 2016 17:20:52 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:42:9
 Sat, 06 Aug 2016 17:20:52 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:42:9
+D:\Software Development Projects\node_modules\express\lib\router\route.js:196
+        throw new Error(msg);
+        ^
+
+Error: Route.get() requires callback functions but got a [object Undefined]
+    at Route.(anonymous function) [as get] (D:\Software Development Projects\node_modules\express\lib\router\route.js:196:15)
+    at router (D:\Software Development Projects\Web Site 2016\src\routes\approutes.js:16:42)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:23:50)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\node_modules\express\lib\router\route.js:196
+        throw new Error(msg);
+        ^
+
+Error: Route.get() requires callback functions but got a [object Undefined]
+    at Route.(anonymous function) [as get] (D:\Software Development Projects\node_modules\express\lib\router\route.js:196:15)
+    at router (D:\Software Development Projects\Web Site 2016\src\routes\approutes.js:16:42)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:23:50)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\node_modules\express\lib\router\route.js:196
+        throw new Error(msg);
+        ^
+
+Error: Route.get() requires callback functions but got a [object Undefined]
+    at Route.(anonymous function) [as get] (D:\Software Development Projects\node_modules\express\lib\router\route.js:196:15)
+    at router (D:\Software Development Projects\Web Site 2016\src\routes\approutes.js:16:42)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:23:50)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\node_modules\express\lib\router\route.js:196
+        throw new Error(msg);
+        ^
+
+Error: Route.get() requires callback functions but got a [object Undefined]
+    at Route.(anonymous function) [as get] (D:\Software Development Projects\node_modules\express\lib\router\route.js:196:15)
+    at router (D:\Software Development Projects\Web Site 2016\src\routes\approutes.js:16:42)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:23:50)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\node_modules\express\lib\router\route.js:196
+        throw new Error(msg);
+        ^
+
+Error: Route.get() requires callback functions but got a [object Undefined]
+    at Route.(anonymous function) [as get] (D:\Software Development Projects\node_modules\express\lib\router\route.js:196:15)
+    at router (D:\Software Development Projects\Web Site 2016\src\routes\approutes.js:16:42)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:23:50)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\node_modules\express\lib\router\route.js:196
+        throw new Error(msg);
+        ^
+
+Error: Route.get() requires callback functions but got a [object Undefined]
+    at Route.(anonymous function) [as get] (D:\Software Development Projects\node_modules\express\lib\router\route.js:196:15)
+    at router (D:\Software Development Projects\Web Site 2016\src\routes\approutes.js:16:42)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:23:50)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\node_modules\express\lib\router\route.js:196
+        throw new Error(msg);
+        ^
+
+Error: Route.get() requires callback functions but got a [object Undefined]
+    at Route.(anonymous function) [as get] (D:\Software Development Projects\node_modules\express\lib\router\route.js:196:15)
+    at router (D:\Software Development Projects\Web Site 2016\src\routes\approutes.js:16:42)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:23:50)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\node_modules\express\lib\router\route.js:196
+        throw new Error(msg);
+        ^
+
+Error: Route.get() requires callback functions but got a [object Undefined]
+    at Route.(anonymous function) [as get] (D:\Software Development Projects\node_modules\express\lib\router\route.js:196:15)
+    at router (D:\Software Development Projects\Web Site 2016\src\routes\approutes.js:16:42)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:23:50)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\node_modules\express\lib\router\route.js:196
+        throw new Error(msg);
+        ^
+
+Error: Route.get() requires callback functions but got a [object Undefined]
+    at Route.(anonymous function) [as get] (D:\Software Development Projects\node_modules\express\lib\router\route.js:196:15)
+    at router (D:\Software Development Projects\Web Site 2016\src\routes\approutes.js:16:42)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:23:50)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+Mon, 08 Aug 2016 23:58:12 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:42:9
+Mon, 08 Aug 2016 23:58:12 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:42:9
+Tue, 09 Aug 2016 00:01:31 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:42:9
+Tue, 09 Aug 2016 00:01:31 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:42:9
+Error: Failed to lookup view "H67signin" in views directory "./src/views"
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:579:17)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:961:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:12:13)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+Tue, 09 Aug 2016 14:05:42 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:42:9
+Tue, 09 Aug 2016 14:05:42 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:42:9
