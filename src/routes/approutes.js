@@ -13,6 +13,8 @@ var router = function() {
 
     approuter.route('/:id').get(appController.getApp);
 
+    approuter.route('/comicsedit').post(appController.editPost);
+
     return approuter;
 
 };

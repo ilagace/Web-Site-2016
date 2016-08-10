@@ -105,3 +105,6 @@
 2016-08-09 10:05:36 - Finished mywebsite.exe
 2016-08-09 10:05:38 - Starting D:\Program Files\nodejs\node.exe --harmony "C:\Users\Ivan\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js" -f "D:\Software Development Projects\Web Site 2016\app.js" -l "My-Website" -g 0.25 -w 1 -r 3 -a n
 2016-08-09 10:05:38 - Started 4928
+2016-08-09 16:57:37 - Stopping mywebsite.exe
+2016-08-09 16:57:37 - ProcessKill 4928
+2016-08-09 16:57:37 - Finished mywebsite.exe
