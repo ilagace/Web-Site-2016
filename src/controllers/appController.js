@@ -11,7 +11,7 @@ var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.en
 if (homedir.indexOf('Users') !== -1) {
     homedir = 'D:/';
 } else {
-    homedir = '';
+    homedir = '../';
 }
 
 function strcompare(a,b) {
