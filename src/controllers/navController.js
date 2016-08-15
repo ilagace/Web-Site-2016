@@ -79,7 +79,8 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                             for (var i = 0; i < results.length; i++) {
                                 var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' +
                                     results[i].folder + '/' + results[i].filename);
-                                var exifStat = new ExifImage({image : path}, function (error, exifData) {
+                                var exifStat = new ExifImage({image : homedir + 'assets/' + basenav[themeid] + '/' +
+                                    results[i].folder + '/' + results[i].filename}, function (error, exifData) {
                                     console.log(exifData);
                                 });
                                 // resize(i, image, results[i].filename);
