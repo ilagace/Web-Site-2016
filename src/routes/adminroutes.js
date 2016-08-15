@@ -354,7 +354,7 @@ var router = function(basenav, localbasenav, category) {
 
     adminrouter.route('/addphotos/:id').get(function(req, res) {
         console.log(isNewFolder,req.params.id);
-        //  Need a workaround when I have a franch accent in parameters which disallow the redirect (a patch)
+        //  Need a workaround when I have a french accent in parameters which disallow the redirect (a patch)
         if (req.params.id.indexOf('é') !== -1) {
             urlParam = req.params.id;
             if (isNewFolder) {
@@ -399,7 +399,7 @@ var router = function(basenav, localbasenav, category) {
         var recordFound = 0;
         var walkerEnd = false;
 
-        var folderStart = ''
+        var folderStart = '';
         if (req.params.id === '0') {
             folderStart = urlParam;
         } else {

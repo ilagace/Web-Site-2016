@@ -1,5 +1,12 @@
 var mongodb = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
+var sharp = require('sharp');
+var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.env.HOME;
+if (homedir.indexOf('Users') !== -1) {
+    homedir = 'D:/SoftwareAssets/public/';
+} else {
+    homedir = '../SoftwareAssets/public/';
+}
 
 var navController = function(basenav, localbasenav, indexnav, indexskip, pagesize) {
 
@@ -60,21 +67,49 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                     collection.find({folder: folder, mediaType: 'photo'}).sort({exifdate: 1, filename: 1}).limit(pagesize).skip(indexnav).toArray(function(err, results) {
                         if (results && results[0] !== undefined) {
                             var themeid = localbasenav.indexOf(results[0].theme);
+                            var extension = results[0].filename.substr(results[0].filename.length - 4,4);
                             //  check if we are at the end of the folder
                             var photoend = true;
                             if (photocount > (indexnav + results.length)) {
                                 photoend =  false;
                             }
-                            res.render('photos',  {nav: ['Back', 'Theme'],
-                                        link: ['/navigation/' + themeid, '/navigation/'] ,
-                                        theme: basenav[themeid], results: results,
-                                        pagesize: pagesize, indexnav: indexnav, photoend: photoend,
-                                        isMovie: isMovie
+                            // create smaller photos to speed up the load process
+                            for (var i = 0; i < results.length; i++) {
+                                var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' + results[i].folder + '/' + results[i].filename);
+                                resize(i, image, results[i].filename);
+                            }
+                            function resize(i, image, filename) {
+                                image.metadata().then(function(metadata) {
+                                    if (metadata.width > metadata.height) {
+                                        image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
+                                            if (i === results.length - 1) {
+                                                oncomplete();
+                                            }
                                         });
+                                    } else {
+                                        image.resize(null, 400).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
+                                            if (i === results.length - 1) {
+                                                oncomplete();
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                            // launch the web page only once the conversion is completed
+                            function oncomplete() {
+                                res.render('photos',  {nav: ['Back', 'Theme'],
+                                            link: ['/navigation/' + themeid, '/navigation/'] ,
+                                            theme: basenav[themeid], results: results,
+                                            pagesize: pagesize, indexnav: indexnav, photoend: photoend,
+                                            isMovie: isMovie, extension:extension
+                                            });
+                                db.close();
+
+                            }
                         } else {
                             res.render('navigation', {nav: basenav, link: '/navigation/'});
+                            db.close();
                         }
-                        db.close();
                     });
                 });
             });

@@ -84,7 +84,7 @@
                     <div id="gallery-content-center">
                         <% for(var i = 0; i < results.length; i++) {%>
                             <a href="/assets/<%=theme%>/<%=results[i].folder%>/<%=results[i].filename%>" data-lightbox="studio1">
-                            <img src="/assets/<%=theme%>/<%=results[i].folder%>/<%=results[i].filename%>"
+                            <img src="/sharp/temp<%=i%>"
                             class="<%=Math.floor((i/10) + 1)%>"
                             alt="Dim: <%=results[i].photoDimW%> x <%=results[i].photoDimH%>, <%=results[i].camera%>
                             <%=results[i].description%> <%=results[i].reverseGeo%>" id="photo<%=i%>">  </a>
