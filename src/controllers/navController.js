@@ -1,6 +1,8 @@
 var mongodb = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 var sharp = require('sharp');
+var ExifImage = require('exif').ExifImage;
+
 var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.env.HOME;
 if (homedir.indexOf('Users') !== -1) {
     homedir = 'D:/SoftwareAssets/public/';
@@ -77,8 +79,10 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                             for (var i = 0; i < results.length; i++) {
                                 var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' +
                                     results[i].folder + '/' + results[i].filename);
-                                console.log(image);
-                                resize(i, image, results[i].filename);
+                                var exifStat = new ExifImage({image : path}, function (error, exifData) {
+                                    console.log(exifData);
+                                });
+                                // resize(i, image, results[i].filename);
                             }
                             function resize(i, image, filename) {
                                 image.metadata().then(function(metadata) {
