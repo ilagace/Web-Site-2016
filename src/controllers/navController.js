@@ -78,13 +78,14 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                             // create smaller photos to speed up the load process
                             for (var i = 0; i < results.length; i++) {
                                 var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' +
-                                    results[i].folder + '/' + results[i].filename).on('info', function(info) {
-                                        console.log('info data is ' + info);
-                                    });
-                                // resize(i, image, results[i].filename);
+                                    results[i].folder + '/' + results[i].filename);
+                                resize(i, image, results[i].filename);
                             }
                             function resize(i, image, filename) {
-                                image.metadata().then(function(metadata) {
+                                image.on('info', function(info) {
+                                    console.log('info data is ' + info);
+                                });
+                                .metadata().then(function(metadata) {
                                     if (metadata.width > metadata.height) {
                                         image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
                                             if (i === results.length - 1) {
