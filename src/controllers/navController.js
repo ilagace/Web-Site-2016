@@ -75,7 +75,6 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                             }
                             // create smaller photos to speed up the load process
                             for (var i = 0; i < results.length; i++) {
-                                console.log(homedir + 'assets/' + basenav[themeid] + '/' + results[i].folder + '/' + results[i].filename);
                                 var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' + results[i].folder + '/' + results[i].filename);
                                 resize(i, image, results[i].filename);
                             }
@@ -83,6 +82,7 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                 image.metadata().then(function(metadata) {
                                     if (metadata.width > metadata.height) {
                                         image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
+                                            console.log(err);
                                             if (i === results.length - 1) {
                                                 oncomplete();
                                             }
