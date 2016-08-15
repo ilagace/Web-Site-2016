@@ -82,10 +82,8 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                 resize(i, image, results[i].filename);
                             }
                             function resize(i, image, filename) {
-                                image.on('info', function(info) {
-                                    console.log('info data is ' + info);
-                                });
-                                .metadata().then(function(metadata) {
+                                image.metadata().then(function(metadata) {
+                                    console.log(metadata);
                                     if (metadata.width > metadata.height) {
                                         image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
                                             if (i === results.length - 1) {
