@@ -75,6 +75,7 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                             }
                             // create smaller photos to speed up the load process
                             for (var i = 0; i < results.length; i++) {
+                                console.log(homedir + 'assets/' + basenav[themeid] + '/' + results[i].folder + '/' + results[i].filename);
                                 var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' + results[i].folder + '/' + results[i].filename);
                                 resize(i, image, results[i].filename);
                             }
