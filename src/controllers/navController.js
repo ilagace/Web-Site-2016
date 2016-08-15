@@ -5,7 +5,7 @@ var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.en
 if (homedir.indexOf('Users') !== -1) {
     homedir = 'D:/SoftwareAssets/public/';
 } else {
-    homedir = '/home/ec2-user/SoftwareAssets/public/';
+    homedir = '../SoftwareAssets/public/';
 }
 
 var navController = function(basenav, localbasenav, indexnav, indexskip, pagesize) {
@@ -82,7 +82,6 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                 image.metadata().then(function(metadata) {
                                     if (metadata.width > metadata.height) {
                                         image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
-                                            console.log(err);
                                             if (i === results.length - 1) {
                                                 oncomplete();
                                             }
