@@ -78,11 +78,9 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                             // create smaller photos to speed up the load process
                             for (var i = 0; i < results.length; i++) {
                                 var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' +
-                                    results[i].folder + '/' + results[i].filename);
-                                var exifStat = new ExifImage({image : homedir + 'assets/' + basenav[themeid] + '/' +
-                                    results[i].folder + '/' + results[i].filename}, function (error, exifData) {
-                                    console.log(exifData);
-                                });
+                                    results[i].folder + '/' + results[i].filename).on('info', function(info) {
+                                        console.log('info data is ' + info);
+                                    });
                                 // resize(i, image, results[i].filename);
                             }
                             function resize(i, image, filename) {
