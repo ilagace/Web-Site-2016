@@ -76,22 +76,32 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                 photoend =  false;
                             }
                             // create smaller photos to speed up the load process
+                            var deldone = false;
                             for (var i = 0; i < results.length; i++) {
-                                var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' +
-                                    results[i].folder + '/' + results[i].filename);
-                                resize(i, image, results[i].filename);
+                                fs.unlink(homedir + 'sharp/temp' + parseInt(i), function() {
+                                    if (deldone) {
+                                        // wait until all files deleted before resizing
+                                        deldone = false;
+                                        for (var j = 0; j < results.length; j++) {
+                                            var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' +
+                                                results[j].folder + '/' + results[j].filename);
+                                            resize(j, image, results[j].filename);
+                                        }
+                                    }
+                                });
                             }
-                            function resize(i, image, filename) {
+                            deldone = true;
+                            function resize(k, image, filename) {
                                 image.metadata().then(function(metadata) {
                                     if (metadata.width > metadata.height) {
-                                        image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
-                                            if (i === results.length - 1) {
+                                        image.resize(300, null).toFile(homedir + 'sharp/temp' + parseInt(k), function(err) {
+                                            if (k === results.length - 1) {
                                                 oncomplete();
                                             }
                                         });
                                     } else {
-                                        image.resize(null, 400).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
-                                            if (i === results.length - 1) {
+                                        image.resize(null, 300).toFile(homedir + 'sharp/temp' + parseInt(k), function(err) {
+                                            if (k === results.length - 1) {
                                                 oncomplete();
                                             }
                                         });
