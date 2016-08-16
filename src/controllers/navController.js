@@ -76,14 +76,13 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                 photoend =  false;
                             }
                             // create smaller photos to speed up the load process
-                            for (var i = 0; i < 1; i++) {
+                            for (var i = 0; i < results.length; i++) {
                                 var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' +
                                     results[i].folder + '/' + results[i].filename);
                                 resize(i, image, results[i].filename);
                             }
-                            function resize2(i, image, filename) {
+                            function resize(i, image, filename) {
                                 image.metadata().then(function(metadata) {
-                                    console.log(metadata);
                                     if (metadata.width > metadata.height) {
                                         image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
                                             if (i === results.length - 1) {
@@ -97,17 +96,6 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                             }
                                         });
                                     }
-                                });
-                            }
-                            function resize(i, image, filename) {
-                                if (fs.existsSync(homedir + 'assets/' + basenav[themeid] + '/' +
-                                        results[i].folder + '/' + results[i].filename)) {
-                                    var binary = String(fs.readFileSync(homedir + 'assets/' + basenav[themeid] + '/' +
-                                        results[i].folder + '/' + results[i].filename, {encoding: 'binary'}));
-                                    console.log('open file in binary',sharp.format,image.format);
-                                }
-                                image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
-                                    console.log(err);
                                 });
                             }
                             // launch the web page only once the conversion is completed
