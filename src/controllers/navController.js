@@ -8,7 +8,7 @@ var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.en
 if (homedir.indexOf('Users') !== -1) {
     homedir = 'D:/SoftwareAssets/public/';
 } else {
-    homedir = 'SoftwareAssets/public/';
+    homedir = '/home/ec2-user/SoftwareAssets/public/';
 }
 var navController = function(basenav, localbasenav, indexnav, indexskip, pagesize) {
 
@@ -104,7 +104,7 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                         results[i].folder + '/' + results[i].filename)) {
                                     var binary = String(fs.readFileSync(homedir + 'assets/' + basenav[themeid] + '/' +
                                         results[i].folder + '/' + results[i].filename, {encoding: 'binary'}));
-                                    console.log(sharp.format);
+                                    console.log('open file in binary',image.format);
                                 }
                                 image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
                                     console.log(err);
