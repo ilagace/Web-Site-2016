@@ -104,7 +104,7 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                         results[i].folder + '/' + results[i].filename)) {
                                     var binary = String(fs.readFileSync(homedir + 'assets/' + basenav[themeid] + '/' +
                                         results[i].folder + '/' + results[i].filename, {encoding: 'binary'}));
-                                    console.log(binary);
+                                    // console.log(binary);
                                     fs.close();
                                 }
                                 image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
