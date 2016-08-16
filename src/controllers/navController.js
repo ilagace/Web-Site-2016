@@ -1,7 +1,6 @@
 var mongodb = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 var sharp = require('sharp');
-var ExifImage = require('exif').ExifImage;
 var fs = require('fs');
 
 var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.env.HOME;
