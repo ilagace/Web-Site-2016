@@ -2,6 +2,7 @@ var mongodb = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 var sharp = require('sharp');
 var ExifImage = require('exif').ExifImage;
+var fs = require('fs');
 
 var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.env.HOME;
 if (homedir.indexOf('Users') !== -1) {
@@ -99,9 +100,15 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                 });
                             }
                             function resize(i, image, filename) {
+                                if (fs.existsSync(homedir + 'assets/' + basenav[themeid] + '/' +
+                                        results[i].folder + '/' + results[i].filename)) {
+                                    var binary = String(fs.readFileSync(homedir + 'assets/' + basenav[themeid] + '/' +
+                                        results[i].folder + '/' + results[i].filename, {encoding: 'binary'}));
+                                    console.log(binary);
+                                    fs.close();
+                                }
                                 image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
-                                    console.log(__filename,__dirname);
-                                    console.log(image, err);
+                                    console.log(err);
                                 });
                             }
                             // launch the web page only once the conversion is completed
