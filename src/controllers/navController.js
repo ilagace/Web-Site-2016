@@ -76,12 +76,12 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                 photoend =  false;
                             }
                             // create smaller photos to speed up the load process
-                            for (var i = 0; i < results.length; i++) {
+                            for (var i = 0; i < 1; i++) {
                                 var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' +
                                     results[i].folder + '/' + results[i].filename);
                                 resize(i, image, results[i].filename);
                             }
-                            function resize(i, image, filename) {
+                            function resize2(i, image, filename) {
                                 image.metadata().then(function(metadata) {
                                     console.log(metadata);
                                     if (metadata.width > metadata.height) {
@@ -97,6 +97,11 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                             }
                                         });
                                     }
+                                });
+                            }
+                            function resize(i, image, filename) {
+                                image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
+                                    console.log(err);
                                 });
                             }
                             // launch the web page only once the conversion is completed
