@@ -7,8 +7,9 @@ var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.en
 if (homedir.indexOf('Users') !== -1) {
     homedir = 'D:/SoftwareAssets/public/';
 } else {
-    homedir = '../SoftwareAssets/public/';
+    homedir = 'home/ec2-user/SoftwareAssets/public/';
 }
+console.log(__filename,__dirname);
 
 var navController = function(basenav, localbasenav, indexnav, indexskip, pagesize) {
 
