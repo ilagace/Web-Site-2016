@@ -101,7 +101,7 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                             }
                             function resize(i, image, filename) {
                                 image.resize(400, null).toFile(homedir + 'sharp/temp' + parseInt(i), function(err) {
-                                    console.log(err);
+                                    console.log(image, err);
                                 });
                             }
                             // launch the web page only once the conversion is completed
