@@ -92,6 +92,9 @@ var router = function(basenav, localbasenav, category, io) {
                     var photoSet = [];
                     var folderSet = [];
                     for (var i = 0; i < results.length; i++) {
+                        if (results[i].filename === undefined) {
+                            console.log(results[i]);
+                        }
                         if (i % 1000 === 0) {
                             io.emit('console', 'Processing number: ' + String(i));
                         }
@@ -108,8 +111,10 @@ var router = function(basenav, localbasenav, category, io) {
                         }
                         // Do not include movies here
                         var typetest = false;
-                        for (var j = 0; j < movietype.length; j++) {
-                            typetest = typetest || results[i].filename.indexOf(movietype[j]) !== -1;
+                        if (results[i].filename !== undefined) {
+                            for (var j = 0; j < movietype.length; j++) {
+                                typetest = typetest || results[i].filename.indexOf(movietype[j]) !== -1;
+                            }
                         }
                         if (!typetest) {
                             photoSet.push(['/assets/' + basenav[localbasenav.indexOf(results[i].theme)] + '/' +
