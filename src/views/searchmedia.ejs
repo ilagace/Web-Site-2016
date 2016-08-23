@@ -22,6 +22,7 @@
     <link href="/css/animated-masonry-gallery.css" rel="stylesheet" type="text/css" />
     <link href="/css/lightbox.css" rel="stylesheet" type="text/css" />
     <script src="/js/angular.min.js"></script>
+    <script src="/js/socket.io.js"></script>
     <script src="/js/searchmedia.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -63,6 +64,16 @@
                             <a href="" class="lb-next" ng-click="gallery.incCurrent()"></a>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-4">
+                    <form name="descForm">
+                        <fieldset class="form-group">
+                            <label>Media Process Log</label>
+                            <textarea id="addtext" class="form-control" rows="20"></textarea>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
             <div class="row">

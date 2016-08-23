@@ -26,7 +26,7 @@ var imagetype = ['.jpg', 'JPG','.bmp','m4v','avi','mov','MOV'];
 var isNewFolder = false;
 var urlParam = '';
 
-var router = function(basenav, localbasenav, category) {
+var router = function(basenav, localbasenav, category, io) {
 
     //  To do a walkthrough of all the photos for my web site
     var walk = require('walk'),
@@ -57,12 +57,12 @@ var router = function(basenav, localbasenav, category) {
         mongodb.connect(url, function(err,db) {
             var collection = db.collection('IvanPhotos');
             var dirSplit = req.body.photo.split('/');
-            collection.updateOne({theme: localbasenav[basenav.indexOf(dirSplit[1])], folder: dirSplit[2], filename: dirSplit[3]},
-                                 {$set: {category: req.body.category, description: req.body.description}}
-                                );
-            console.log(req.body.category, req.body.description);
-            db.close();
-            res.send({result:'success'});
+            collection.updateOne({theme: localbasenav[basenav.indexOf(dirSplit[2])], folder: dirSplit[3], filename: dirSplit[4]},
+                                 {$set: {category: req.body.category, description: req.body.description}}, function(err) {
+                                    console.log(dirSplit, req.body.category, req.body.description);
+                                    db.close();
+                                    res.send({result:'success'});
+                                });
         });
     });
 
@@ -77,6 +77,7 @@ var router = function(basenav, localbasenav, category) {
     });
 
     adminrouter.route('/mediadata').get(function(req, res) {
+        var movietype = ['.avi', 'mp4','.MOV','mov'];
         var photoArray = {};
         var folderList = {};
         var pkey = '';
@@ -85,11 +86,15 @@ var router = function(basenav, localbasenav, category) {
             var collection = db.collection('IvanPhotos');
             collection.find({},{theme:1, folder:1, filename:1, category:1, description:1}).sort({theme:1}).toArray(function(err, results) {
                 if (results) {
+                    io.emit('console', 'Start reading media in DB \nNumber of photos = ' + String(results.length));
                     var prevtheme = results[0].theme;
                     var prevfolder = '';
                     var photoSet = [];
                     var folderSet = [];
                     for (var i = 0; i < results.length; i++) {
+                        if (i % 1000 === 0) {
+                            io.emit('console', 'Processing number: ' + String(i));
+                        }
                         if (results[i].theme !== prevtheme || results[i].folder !== prevfolder) {
                             if (results[i].theme !== prevtheme) {
                                 folderList[basenav[localbasenav.indexOf(prevtheme)]] = folderSet;
@@ -102,7 +107,11 @@ var router = function(basenav, localbasenav, category) {
                             photoSet = [];
                         }
                         // Do not include movies here
-                        if (results[i].filename.indexOf('mp4') === -1) {
+                        var typetest = false;
+                        for (var j = 0; j < movietype.length; j++) {
+                            typetest = typetest || results[i].filename.indexOf(movietype[j]) !== -1;
+                        }
+                        if (!typetest) {
                             photoSet.push(['/assets/' + basenav[localbasenav.indexOf(results[i].theme)] + '/' +
                                 results[i].folder + '/' + results[i].filename, results[i].category, results[i].description]);
                         }
@@ -127,6 +136,7 @@ var router = function(basenav, localbasenav, category) {
     adminrouter.route('/searchold').get(function(req, res, next) {
 
         console.log('search being called...please wait');
+        io.emit('console', 'search being called...please wait');
         var photocounter = 0;
         var totalCount = 0;
         var findErrorNum = 0;
@@ -150,6 +160,7 @@ var router = function(basenav, localbasenav, category) {
             function oncomplete() {
                 if (totalCount === (recordCheck - recordFound - findErrorNum)) {
                     console.log('A total of ' + totalCount + ' records were added and ' + recordCheck + ' records checked.');
+                    io.emit('console', 'A total of ' + String(totalCount) + ' records were added and ' + String(recordCheck) + ' records checked.');
                     db.close();
                     var prevtheme = photoList[0].theme;
                     var prevfolder = '';
@@ -173,6 +184,11 @@ var router = function(basenav, localbasenav, category) {
                     }
                     folderList[prevtheme] = folderSet.sort();
                     res.json({basenav: basenav, photoArray: photoArray, folderList: folderList});
+                } else {
+                    if (totalCount % 1000 === 0) {
+                        io.emit('console', 'A total of ' + String(totalCount) + ' records were processed');
+                    }
+                    return;
                 }
             }
 
@@ -206,6 +222,7 @@ var router = function(basenav, localbasenav, category) {
                         if (err) {
                             findErrorNum += 1;
                             console.log('error when looking up: ',fileStats.name);
+                            io.emit('console', 'error when looking up: ' + fileStats.name);
                             if (walkerEnd) {
                                 oncomplete();
                             }
@@ -232,7 +249,10 @@ var router = function(basenav, localbasenav, category) {
             });
 
             walker.on('end', function() {
-                console.log('folder walk completed with ',recordCheck, ' records checked, records found: ',recordFound, ' and records added: ',totalCount);
+                console.log('folder walk completed with ',recordCheck, ' records checked, records found: ',recordFound,
+                 ' and records added: ',totalCount);
+                io.emit('console', 'folder walk completed with ' + String(recordCheck) + ' records checked, records found: ' +
+                    String(recordFound) + ' and records added: ' + String(totalCount));
                 walkerEnd = true;
                 oncomplete();
             });
@@ -265,31 +285,42 @@ var router = function(basenav, localbasenav, category) {
             function oncomplete() {
                 if (totalCount === (recordCheck - recordFound - findErrorNum)) {
                     console.log('A total of ' + totalCount + ' records were added and ' + recordCheck + ' records checked.');
+                    io.emit('console', 'A total of ' + String(totalCount) + ' records were added and ' + String(recordCheck) + ' records checked.');
                     db.close();
-                    // The list must be sorted first for the module to work
-                    photoList.sort(function(a,b) {return (a.theme + a.folder > b.theme + b.folder) ? 1 : ((b.theme + b.folder > a.theme + a.folder) ? -1 : 0);});
-                    var prevtheme = photoList[0].theme;
-                    var prevfolder = '';
-                    var photoSet = [];
-                    var folderSet = [];
-                    for (var i = 0; i < photoList.length; i++) {
-                        if (photoList[i].theme !== prevtheme || photoList[i].folder !== prevfolder) {
-                            if (photoList[i].theme !== prevtheme) {
-                                folderList[prevtheme] = folderSet;
-                                folderSet = [];
+                    if (photoList.length !== 0) {
+                        // The list must be sorted first for the module to work
+                        photoList.sort(function(a,b) {return (a.theme + a.folder > b.theme + b.folder) ? 1 : ((b.theme + b.folder > a.theme + a.folder) ? -1 : 0);});
+                        var prevtheme = photoList[0].theme;
+                        var prevfolder = '';
+                        var photoSet = [];
+                        var folderSet = [];
+                        for (var i = 0; i < photoList.length; i++) {
+                            if (photoList[i].theme !== prevtheme || photoList[i].folder !== prevfolder) {
+                                if (photoList[i].theme !== prevtheme) {
+                                    folderList[prevtheme] = folderSet;
+                                    folderSet = [];
+                                }
+                                folderSet.push(photoList[i].folder);
+                                prevtheme = photoList[i].theme;
+                                prevfolder = photoList[i].folder;
+                                pkey = photoList[i].theme + ',' + photoList[i].folder;
+                                photoSet = [];
                             }
-                            folderSet.push(photoList[i].folder);
-                            prevtheme = photoList[i].theme;
-                            prevfolder = photoList[i].folder;
-                            pkey = photoList[i].theme + ',' + photoList[i].folder;
-                            photoSet = [];
+                            photoSet.push('/assets/' + photoList[i].theme + '/' +
+                                photoList[i].folder + '/' + photoList[i].filename);
+                            photoArray[pkey] = photoSet.sort();
                         }
-                        photoSet.push('/assets/' + photoList[i].theme + '/' +
-                            photoList[i].folder + '/' + photoList[i].filename);
-                        photoArray[pkey] = photoSet.sort();
+                        folderList[prevtheme] = folderSet.sort();
+                    } else {
+                        console.log('No new folders found');
+                        io.emit('console','No new folders found');
                     }
-                    folderList[prevtheme] = folderSet.sort();
                     res.json({basenav: basenav, photoArray: photoArray, folderList: folderList});
+                } else {
+                    if (totalCount % 1000 === 0) {
+                        io.emit('console', 'A total of ' + String(totalCount) + ' records were processed');
+                    }
+                    return;
                 }
             }
 
@@ -319,6 +350,7 @@ var router = function(basenav, localbasenav, category) {
                         if (err) {
                             findErrorNum += 1;
                             console.log('error when looking up: ',fileStats.name);
+                            io.emit('console', 'error when looking up: ' + fileStats.name);
                             if (walkerEnd) {
                                 oncomplete();
                             }
@@ -346,6 +378,8 @@ var router = function(basenav, localbasenav, category) {
 
             walker.on('end', function() {
                 console.log('folder walk completed with ',recordCheck, ' records checked, records found: ',recordFound, ' and records added: ',totalCount);
+                io.emit('console', 'folder walk completed with ' + String(recordCheck) + ' records checked, records found: ' +
+                    String(recordFound) + ' and records added: ' + String(totalCount));
                 walkerEnd = true;
                 oncomplete();
             });
@@ -353,7 +387,6 @@ var router = function(basenav, localbasenav, category) {
     });
 
     adminrouter.route('/addphotos/:id').get(function(req, res) {
-        console.log(isNewFolder,req.params.id);
         //  Need a workaround when I have a french accent in parameters which disallow the redirect (a patch)
         if (req.params.id.indexOf('é') !== -1) {
             urlParam = req.params.id;
@@ -420,10 +453,14 @@ var router = function(basenav, localbasenav, category) {
             //  Wait until all callback are finished before closing
             function oncomplete() {
                 if (totalCount < (recordCheck - recordFound - findErrorNum) || photocounter !== 0) {
-                    console.log('A total of ' + totalCount + ' records were added and ' + recordCheck + ' records checked.');
+                    if (totalCount % 100 === 0) {
+                        console.log('A total of ' + totalCount + ' records were added and ' + recordCheck + ' records checked.');
+                        io.emit('console', 'A total of ' + String(totalCount) + ' records were added and ' + String(recordCheck) + ' records checked.');
+                    }
                     return;
                 } else {
                     console.log('A total of ' + totalCount + ' records were added and ' + recordCheck + ' records checked.');
+                    io.emit('console', 'A total of ' + String(totalCount) + ' records were added and ' + String(recordCheck) + ' records checked.');
                     db.close();
                     res.redirect('/');
                 }
@@ -452,6 +489,10 @@ var router = function(basenav, localbasenav, category) {
                 if (root.indexOf('v8x6') !== -1 && typetest) {
                     var dirSplit = root.split('\\');
                     var fork = '';
+                    if (dirSplit[5].length >= 35) {
+                        console.log('Subfolder name is too long', dirSplit[5]);
+                        io.emit('console','Subfolder name is too long ' + dirSplit[5]);
+                    }
                     if (dirSplit[3].indexOf('2') !== -1) {
                         fork = ' 2';
                     }
@@ -461,7 +502,6 @@ var router = function(basenav, localbasenav, category) {
                     var mediaType = 'photo';
                     var text = null;
                     if (fileStats.name.indexOf('m4v') !== -1 || fileStats.name.indexOf('avi') !== -1) {
-                        console.log(fileStats.name);
                         mediaType = 'video';
                     } else {
                         // Get the text for the description if it exists
@@ -491,6 +531,7 @@ var router = function(basenav, localbasenav, category) {
                         if (err) {
                             findErrorNum += 1;
                             console.log('error when looking up: ',fileStats.name);
+                            io.emit('console', 'error when looking up: ' + fileStats.name);
                             recordFound += 1;
                             if (walkerEnd) {
                                 oncomplete();
@@ -628,6 +669,7 @@ var router = function(basenav, localbasenav, category) {
                                 });
                             } catch (error) {
                                 console.log('Error try: ' + error.message);
+                                io.emit('console', 'Error try: ' + error.message);
                             }
                         } else {
                             recordFound += 1;
@@ -646,6 +688,8 @@ var router = function(basenav, localbasenav, category) {
 
             walker.on('end', function() {
                 console.log('folder walk completed with ',recordCheck, ' records checked, records found: ',recordFound, ' and records added: ',totalCount);
+                io.emit('console', 'folder walk completed with ' + String(recordCheck) + ' records checked, records found: ' +
+                    String(recordFound) + ' and records added: ' + String(totalCount));
                 walkerEnd = true;
                 oncomplete();
             });
@@ -653,8 +697,6 @@ var router = function(basenav, localbasenav, category) {
     });
 
     adminrouter.route('/addnew/:id').get(function(req, res) {
-
-        console.log('going in');
 
         //  To read the exif data on most recent photos
         var ExifImage = require('exif').ExifImage;
@@ -682,7 +724,7 @@ var router = function(basenav, localbasenav, category) {
         var recordFound = 0;
         var walkerEnd = false;
 
-        var folderStart = ''
+        var folderStart = '';
         if (req.params.id === '0') {
             folderStart = urlParam;
         } else {
@@ -699,10 +741,14 @@ var router = function(basenav, localbasenav, category) {
             //  Wait until all callback are finished before closing
             function oncomplete() {
                 if (totalCount < (recordCheck - recordFound - findErrorNum) || photocounter !== 0) {
-                    console.log('A total of ' + totalCount + ' records were added and ' + recordCheck + ' records checked.');
+                    if (totalCount % 100 === 0) {
+                        console.log('A total of ' + totalCount + ' records were added and ' + recordCheck + ' records checked.');
+                        io.emit('console', 'A total of ' + String(totalCount) + ' records were added and ' + String(recordCheck) + ' records checked.');
+                    }
                     return;
                 } else {
                     console.log('A total of ' + totalCount + ' records were added and ' + recordCheck + ' records checked.');
+                    io.emit('console', 'A total of ' + String(totalCount) + ' records were added and ' + String(recordCheck) + ' records checked.');
                     db.close();
                     res.redirect('/');
                 }
@@ -733,8 +779,7 @@ var router = function(basenav, localbasenav, category) {
                     // Check for movies
                     var mediaType = 'photo';
                     var text = null;
-                    if (fileStats.name.indexOf('mov') !== -1 || fileStats.name.indexOf('MOV') !== -1) {
-                        console.log(fileStats.name);
+                    if (fileStats.name.indexOf('MOV') !== -1 || fileStats.name.indexOf('mov') !== -1) {
                         mediaType = 'video';
                     }
                     // We are now inside the image folder and we check first if photo/video already in database
@@ -743,6 +788,7 @@ var router = function(basenav, localbasenav, category) {
                         if (err) {
                             findErrorNum += 1;
                             console.log('error when looking up: ',fileStats.name);
+                            io.emit('console', 'error when looking up: ' + fileStats.name);
                             recordFound += 1;
                             if (walkerEnd) {
                                 oncomplete();
@@ -880,6 +926,7 @@ var router = function(basenav, localbasenav, category) {
                                 });
                             } catch (error) {
                                 console.log('Error try: ' + error.message);
+                                io.emit('console', 'Error try: ' + error.message);
                             }
                         } else {
                             recordFound += 1;
@@ -898,6 +945,8 @@ var router = function(basenav, localbasenav, category) {
 
             walker.on('end', function() {
                 console.log('new photos folder walk completed with ',recordCheck, ' records checked, records found: ',recordFound, ' and records added: ',totalCount);
+                io.emit('console', 'folder walk completed with ' + String(recordCheck) + ' records checked, records found: ' +
+                    String(recordFound) + ' and records added: ' + String(totalCount));
                 walkerEnd = true;
                 oncomplete();
             });

@@ -2,6 +2,11 @@ var express = require('express');
 
 var app = express();
 
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+server.listen(3010, '127.0.0.1');
+
 var port = process.env.PORT || 3000;
 
 var bodyParser = require('body-parser');
@@ -17,8 +22,7 @@ var pagesize = 30;
 var indexskip = '0';
 
 var navrouter = require('./src/routes/navroutes')(basenav, localbasenav, indexnav, indexskip, pagesize);
-var adminrouter = require('./src/routes/adminroutes')(basenav, localbasenav, category);
-var searchrouter = require('./src/routes/searchroutes')(basenav, localbasenav);
+var adminrouter = require('./src/routes/adminroutes')(basenav, localbasenav, category, io);
 var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav, category);
 var approuter = require('./src/routes/approutes')();
 
@@ -47,7 +51,6 @@ app.set('view engine','ejs');
 
 app.use('/navigation', navrouter);
 app.use('/admin', adminrouter);
-app.use('/search', searchrouter);
 app.use('/gallery', galleryrouter);
 app.use('//', approuter);
 

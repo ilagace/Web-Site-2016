@@ -68,7 +68,6 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                     collection.find({folder: folder, mediaType: 'photo'}).sort({exifdate: 1, filename: 1}).limit(pagesize).skip(indexnav).toArray(function(err, results) {
                         if (results && results[0] !== undefined) {
                             var themeid = localbasenav.indexOf(results[0].theme);
-                            var extension = results[0].filename.substr(results[0].filename.length - 4,4);
                             //  check if we are at the end of the folder
                             var photoend = true;
                             if (photocount > (indexnav + results.length)) {
@@ -99,7 +98,7 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                             }
                                         });
                                     } else {
-                                        image.resize(null, 300).toFile(homedir + 'sharp/temp' + parseInt(k), function(err) {
+                                        image.resize(null, 500).toFile(homedir + 'sharp/temp' + parseInt(k), function(err) {
                                             if (k === results.length - 1) {
                                                 oncomplete();
                                             }
@@ -113,7 +112,7 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                             link: ['/navigation/' + themeid, '/navigation/'] ,
                                             theme: basenav[themeid], results: results,
                                             pagesize: pagesize, indexnav: indexnav, photoend: photoend,
-                                            isMovie: isMovie, extension:extension
+                                            isMovie: isMovie
                                             });
                                 db.close();
 

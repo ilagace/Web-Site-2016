@@ -23,6 +23,7 @@
     <link href="/css/animated-masonry-gallery.css" rel="stylesheet" type="text/css" />
     <link href="/css/lightbox.css" rel="stylesheet" type="text/css" />
     <script src="/js/angular.min.js"></script>
+    <script src="/js/socket.io.js"></script>
     <script src="/js/managemedia.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -83,6 +84,13 @@
                                 <textarea ng-model="desc" class="form-control" rows="3"></textarea>
                             </fieldset>
                             <button type="submit" class="btn btn-primary" ng-disabled="disable">Submit</button>
+                            <div class="row">
+                                <h1> </h1>
+                            </div>
+                            <fieldset class="form-group">
+                                <label>Media Process Log</label>
+                                <textarea id="addtext" class="form-control" rows="20"></textarea>
+                            </fieldset>
                         </form>
                     </div>
                 </section>
