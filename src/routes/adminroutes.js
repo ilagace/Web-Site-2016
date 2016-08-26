@@ -152,6 +152,7 @@ var router = function(basenav, localbasenav, category, io) {
         var photoArray = {};
         var folderList = {};
         var photoList = [];
+        var photoSet = '';
         var pkey = '';
 
         // Do not check for movies
@@ -167,27 +168,22 @@ var router = function(basenav, localbasenav, category, io) {
                     console.log('A total of ' + totalCount + ' records were added and ' + recordCheck + ' records checked.');
                     io.emit('console', 'A total of ' + String(totalCount) + ' records were added and ' + String(recordCheck) + ' records checked.');
                     db.close();
-                    var prevtheme = photoList[0].theme;
-                    var prevfolder = '';
-                    var photoSet = [];
-                    var folderSet = [];
-                    for (var i = 0; i < photoList.length; i++) {
-                        if (photoList[i].theme !== prevtheme || photoList[i].folder !== prevfolder) {
-                            if (photoList[i].theme !== prevtheme) {
-                                folderList[prevtheme] = folderSet;
-                                folderSet = [];
-                            }
-                            folderSet.push(photoList[i].folder);
-                            prevtheme = photoList[i].theme;
-                            prevfolder = photoList[i].folder;
-                            pkey = photoList[i].theme + ',' + photoList[i].folder;
-                            photoSet = [];
-                        }
-                        photoSet.push('/assets/' + photoList[i].theme + '/' +
-                            photoList[i].folder + '/' + photoList[i].filename);
-                        photoArray[pkey] = photoSet.sort();
+                    for (var j = 0; j <= 5; j++) {
+                        folderList[basenav[j]] = [];
                     }
-                    folderList[prevtheme] = folderSet.sort();
+                    for (var i = 0; i < photoList.length; i++) {
+                        pkey = photoList[i].theme + ',' + photoList[i].folder;
+                        photoSet = '/assets/' + photoList[i].theme + '/' +
+                            photoList[i].folder + '/' + photoList[i].filename;
+                        if (folderList[photoList[i].theme].indexOf(photoList[i].folder) === -1) {
+                            folderList[photoList[i].theme].push(photoList[i].folder);
+                        }
+                        if (photoArray[pkey] === undefined) {
+                            photoArray[pkey] = [photoSet];
+                        } else {
+                            photoArray[pkey].push(photoSet);
+                        }
+                    }
                     res.json({basenav: basenav, photoArray: photoArray, folderList: folderList});
                 } else {
                     if (totalCount % 1000 === 0) {
@@ -506,7 +502,8 @@ var router = function(basenav, localbasenav, category, io) {
                     // Check for movies
                     var mediaType = 'photo';
                     var text = null;
-                    if (fileStats.name.indexOf('m4v') !== -1 || fileStats.name.indexOf('avi') !== -1) {
+                    if (fileStats.name.indexOf('m4v') !== -1 || fileStats.name.indexOf('avi') !== -1  ||
+                            fileStats.name.indexOf('mov') !== -1 || fileStats.name.indexOf('MOV') !== -1) {
                         mediaType = 'video';
                     } else {
                         // Get the text for the description if it exists
