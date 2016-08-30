@@ -65,7 +65,8 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                 }
                 collection.count({folder: folder, mediaType: 'photo'}, function(err, results) {
                     photocount = results;
-                    collection.find({folder: folder, mediaType: 'photo'}).sort({exifdate: 1, filename: 1}).limit(pagesize).skip(indexnav).toArray(function(err, results) {
+                    collection.find({folder: folder, mediaType: 'photo'}).sort({exifdate: 1, filename: 1})
+                        .limit(pagesize).skip(indexnav).toArray(function(err, results) {
                         if (results && results[0] !== undefined) {
                             var themeid = localbasenav.indexOf(results[0].theme);
                             //  check if we are at the end of the folder
@@ -154,12 +155,53 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
         });
     };
 
+    var showDiaporama = function (req, res) {
+        // Test for diaporamas and fork to smil player instead
+        var smilN = {'Bel':'Belanger','Lag':'Lagace'};
+        var subStr = req.params.id;
+        var smilName = smilN[subStr];
+        var smildir = 'assets/Vieilles Photos Lagace/Diapos ' + smilName + ' Noces d Or/';
+        var timex = 0;
+        var timing = [];
+        var filename = [];
+        var timeIndex = 0;
+        var fileIndex = 0;
+        var startclip = 0;
+        var audioFile = '';
+
+        fs.readFile(homedir + '/' + smildir + 'audiosmil.smil', 'utf8', function(err, data) {
+            for (var i = 0; i < data.length - 10; i++) {
+                if (data.substr(i,3) === 'dur') {
+                    timex = data.substr(i + 5,4).indexOf('s');
+                    timing[timeIndex] = parseInt(data.substr(i + 5,timex));
+                    timeIndex += 1;
+                }
+                if (data.substr(i,7) === 'img src') {
+                    timex = data.substr(i + 9,30).indexOf('"');
+                    filename[fileIndex] = data.substr(i + 9,timex);
+                    fileIndex += 1;
+                }
+                if (data.substr(i,10) === 'clip-begin') {
+                    timex = data.substr(i + 12,4).indexOf('s');
+                    // startclip = parseInt(data.substr(i+12,timex)); not necessary...
+                }
+                if (data.substr(i,9) === 'audio src') {
+                    timex = data.substr(i + 11,30).indexOf('"');
+                    audioFile = data.substr(i + 11,timex);
+                }
+            }
+            res.render('slideshow', {smildir: '/' + smildir, filename:filename,
+                timing: JSON.stringify(timing), startclip:startclip, audioFile:audioFile});
+        });
+    };
+
     return {
         getRoot: getRoot,
         getByTheme: getByTheme,
         getSkipIndex: getSkipIndex,
         getInFolder: getInFolder,
         showVideo: showVideo,
+        showDiaporama: showDiaporama,
         middleware: middleware
     };
 };

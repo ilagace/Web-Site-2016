@@ -21,6 +21,8 @@ var router = function(basenav, localbasenav, indexnav, indexskip, pagesize) {
 
     navrouter.route('/video/:id').get(navController.showVideo);
 
+    navrouter.route('/diapos/:id').get(navController.showDiaporama);
+
     return navrouter;
 
 };
