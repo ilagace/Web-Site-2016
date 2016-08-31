@@ -45,7 +45,6 @@ app.set('view engine','ejs');
 
 app.use('/navigation', navrouter);
 app.use('/admin', adminrouter);
-app.use('/search', searchrouter);
 app.use('/gallery', galleryrouter);
 app.use('//', approuter);
 
