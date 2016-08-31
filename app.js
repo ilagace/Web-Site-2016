@@ -4,7 +4,6 @@ var app = express();
 
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-var os = require('os');
 
 server.listen(3010, '127.0.0.1');
 

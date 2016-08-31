@@ -3,6 +3,8 @@ var express = require('express');
 var app = express();
 
 var port = process.env.PORT || 3000;
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -16,11 +18,17 @@ var indexnav = 0;
 var pagesize = 30;
 var indexskip = '0';
 
-var navrouter = require('./src/routes/navroutes')(basenav, localbasenav, indexnav, indexskip, pagesize);
-var adminrouter = require('./src/routes/adminroutes')(basenav, localbasenav, category);
-var searchrouter = require('./src/routes/searchroutes')(basenav, localbasenav);
-var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav, category);
-var approuter = require('./src/routes/approutes')();
+//  Windows ---  app.js
+//var homedir = 'D:/SoftwareAssets/public/';
+//var appdir = 'D:/';
+//  Linux ---  apprmt.js
+var homedir = '/home/ec2-user/SoftwareAssets/public/';
+var appdir = '../';
+
+var navrouter = require('./src/routes/navroutes')(basenav, localbasenav, indexnav, indexskip, pagesize, homedir);
+var adminrouter = require('./src/routes/adminroutes')(basenav, localbasenav, category, io);
+var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav, category, homedir);
+var approuter = require('./src/routes/approutes')(appdir);
 
 app.use(express.static('public'));
 app.use('/', express.static('public'));
