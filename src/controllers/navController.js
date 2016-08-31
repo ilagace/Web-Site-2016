@@ -9,6 +9,7 @@ if (homedir.indexOf('Users') !== -1) {
 } else {
     homedir = '/home/ec2-user/SoftwareAssets/public/';
 }
+
 var navController = function(basenav, localbasenav, indexnav, indexskip, pagesize) {
 
     var middleware = function(req, res, next) {
@@ -52,6 +53,7 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
     };
 
     var getInFolder = function (req, res) {
+        console.log('running: ', homedir);
         var folder = req.params.id;
         var url = 'mongodb://localhost:27017/library';
         mongodb.connect(url, function(err, db) {
@@ -73,6 +75,12 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                             var photoend = true;
                             if (photocount > (indexnav + results.length)) {
                                 photoend =  false;
+                            }
+                            // if folder name is v8x6 then remove it from the results
+                            for (var k = 0; k < results.length; k++) {
+                                if (results[k].subfolder === 'v8x6') {
+                                    results[k].subfolder = '';
+                                }
                             }
                             // create smaller photos to speed up the load process
                             var deldone = false;

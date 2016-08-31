@@ -53,11 +53,13 @@
 
         <div id="container" class="container">
             <div id="gallery">
-                <div id="gallery-header">
-                    <div id="gallery-header-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-9 col-xs-12">
                         <div id="gallery-header-center-left">
                             <div id="gallery-header-center-left-title"></div>
                         </div>
+                    </div>
+                    <div class="col-md-6 col-sm-9 col-xs-12">
                         <div id="gallery-header-center-right">
                             <% if (indexnav > 0) {%>
                                 <a href="/navigation/folder/<%=results[0].folder%>/-" class="gallery-header-center-right-links" id="prevpage">...Prev</a>
@@ -72,10 +74,10 @@
                         </div>
                     </div>
                 </div>
+                </div>
                 <% if (isMovie) {%>
                     <div class="row">
-                        <div class="col-md-5">
-                        </div>
+                        <div class="col-md-5 col-sm-4 col-xs-3"></div>
                         <a class="nav nav-pills active" href="/navigation/video/<%=results[0].folder%>" >Click to see Videos</a><br>
                     </div>
                 <%}%>

@@ -10,25 +10,33 @@
     <title>smil player</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/smil.css" rel="stylesheet">
-    <script type="text/javascript" charset="utf-8">
+    <script type="text/javascript" charset="utf-8">  // must read the ejs variables here when required by javascript
         var timing = JSON.parse('<%=timing%>');
         var startclip = <%=startclip%>;
     </script>
 </head>
 
 <body>
-<audio id="smilaudio">
-  <source src = "<%=smildir%><%=audioFile%>" type="audio/mpeg">
-</audio>
 
-<div class="slideshow-container">
+<div class="row">
+    <div class="col-md-offset-5 col-sm-offset-4 col-xs-offset-3">
+        <h1> </h1>
+        <audio id="smilaudio" controls>
+          <source src = "<%=smildir%><%=audioFile%>" type="audio/mpeg">
+        </audio>
+        <h1> </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="slideshow-container">
 
-<% for (i = 0; i < filename.length; i++) {%>
-  <div class="mySlides">
-    <img src= "<%=smildir%><%=filename[i]%>" style="width:100%">
-  </div>
-<%}%>
+    <% for (i = 0; i < filename.length; i++) {%>
+      <div class="mySlides">
+        <img src= "<%=smildir%><%=filename[i]%>" style="width:100%">
+      </div>
+    <%}%>
 
+    </div>
 </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
