@@ -5,9 +5,9 @@ var ObjectID = require('mongodb').ObjectID;
 
 var navrouter = express.Router();
 
-var router = function(basenav, localbasenav, indexnav, indexskip, pagesize) {
+var router = function(basenav, localbasenav, indexnav, indexskip, pagesize, homedir) {
 
-    var navController = require('../controllers/navController')(basenav, localbasenav, indexnav, indexskip, pagesize);
+    var navController = require('../controllers/navController')(basenav, localbasenav, indexnav, indexskip, pagesize, homedir);
 
     navrouter.use(navController.middleware);
 

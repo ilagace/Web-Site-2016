@@ -5,9 +5,9 @@ var ObjectID = require('mongodb').ObjectID;
 
 var approuter = express.Router();
 
-var router = function() {
+var router = function(appdir) {
 
-    var appController = require('../controllers/appController')();
+    var appController = require('../controllers/appController')(appdir);
 
     approuter.use(appController.middleware);
 

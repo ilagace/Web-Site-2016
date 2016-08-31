@@ -7,18 +7,12 @@ var dataout = [];
 var comicname = [];
 var datacheck = {};
 var datachecked = {};
-var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.env.HOME;
-if (homedir.indexOf('Users') !== -1) {
-    homedir = 'D:/';
-} else {
-    homedir = '../';
-}
 
 function strcompare(a,b) {
     return a[1].localeCompare(b[1]);
 }
 
-var appController = function() {
+var appController = function(appdir) {
 
     var middleware = function(req, res, next) {
         next();
@@ -39,11 +33,11 @@ var appController = function() {
                 }
                 res.render('comicspage', {data:data});
             });
-            fs.createReadStream(homedir + 'SoftwareAssets/public/comics/listlocal').pipe(parserin);
+            fs.createReadStream(appdir + 'SoftwareAssets/public/comics/listlocal').pipe(parserin);
         } else {
             if (appName.indexOf('comicsedit') !== -1) {
-                var fsgo = fs.createWriteStream(homedir + 'SoftwareAssets/public/comics/listgo');
-                var fsoregon = fs.createWriteStream(homedir + 'SoftwareAssets/public/comics/listoregon');
+                var fsgo = fs.createWriteStream(appdir + 'SoftwareAssets/public/comics/listgo');
+                var fsoregon = fs.createWriteStream(appdir + 'SoftwareAssets/public/comics/listoregon');
                 var parser = parse({delimiter: ','}, function(err, data) {
                     for (var i = 0; i < data.length; i++) {
                         if (!(data[i][2] in datacheck)) {datacheck[data[i][2]] = '';}
@@ -53,7 +47,7 @@ var appController = function() {
                         datapygo.push([data[i][2],data[i][3]]);
                         dataout.push(data[i]);
                     }
-                    fs.createReadStream(homedir + 'SoftwareAssets/public/comics/comiclistoregonedited').pipe(parser2);
+                    fs.createReadStream(appdir + 'SoftwareAssets/public/comics/comiclistoregonedited').pipe(parser2);
 
                 });
                 var parser2 = parse({delimiter: ','}, function(err, data) {
@@ -91,7 +85,7 @@ var appController = function() {
                 dataout.push(['mrboffoz.jpg','Mr. Boffo','mrboffo','http://www.mrboffo.com']);
                 if (!('mrboffo' in datacheck)) {datacheck['mrboffo'] = '';}
                 comicname.push(['dilbert','dilbert'],['archie','archie'],['mrboffo','mrboffo']);
-                fs.createReadStream(homedir + 'SoftwareAssets/public/comics/comiclistgoedited').pipe(parser);
+                fs.createReadStream(appdir + 'SoftwareAssets/public/comics/comiclistgoedited').pipe(parser);
             } else {
                 res.render(appName);
             }
@@ -106,7 +100,7 @@ var appController = function() {
             }
         }
 
-        var fslocal = fs.createWriteStream(homedir + 'SoftwareAssets/public/comics/listlocal');
+        var fslocal = fs.createWriteStream(appdir + 'SoftwareAssets/public/comics/listlocal');
         csv.stringify(datalocal, function(err, output) {
             fslocal.write(output);
             fslocal.end();

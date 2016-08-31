@@ -4,14 +4,8 @@ var galleryrouter = express.Router();
 var sharp = require('sharp');
 var fs = require('fs');
 
-var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.env.HOME;
-if (homedir.indexOf('Users') !== -1) {
-    homedir = 'D:/SoftwareAssets/public/';
-} else {
-    homedir = '/home/ec2-user/SoftwareAssets/public/';
-}
 
-var router = function(basenav, localbasenav, category) {
+var router = function(basenav, localbasenav, category, homedir) {
 
     //  Angular will handle the data for the page by calling /searchmedia
     galleryrouter.route('/:id').get(function(req, res) {

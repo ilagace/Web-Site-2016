@@ -4,6 +4,7 @@ var app = express();
 
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
+var os = require('os');
 
 server.listen(3010, '127.0.0.1');
 
@@ -21,13 +22,7 @@ var indexnav = 0;
 var pagesize = 30;
 var indexskip = '0';
 
-var navrouter = require('./src/routes/navroutes')(basenav, localbasenav, indexnav, indexskip, pagesize);
-var adminrouter = require('./src/routes/adminroutes')(basenav, localbasenav, category, io);
-var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav, category);
-var approuter = require('./src/routes/approutes')();
-
 //Change starting directory as the call is via Windows Services, need to be changed on AWS so I use apprmt.js there
-console.log('Starting directory:', process.cwd());
 try {
     process.chdir('D:/Software\ Development\ Projects/Web\ Site\ 2016');
     console.log('New directory:', process.cwd());
@@ -35,6 +30,19 @@ try {
 catch (err) {
     console.log('chdir:',err);
 }
+//  Windows ---  app.js
+var homedir = 'D:/SoftwareAssets/public/';
+var appdir = 'D:/';
+//  Linux ---  apprmt.js
+//var homedir = '/home/ec2-user/SoftwareAssets/public/';
+//var appdir = '../';
+
+console.log('homedir: ',homedir,'Starting directory:', process.cwd());
+
+var navrouter = require('./src/routes/navroutes')(basenav, localbasenav, indexnav, indexskip, pagesize, homedir);
+var adminrouter = require('./src/routes/adminroutes')(basenav, localbasenav, category, io);
+var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav, category, homedir);
+var approuter = require('./src/routes/approutes')(appdir);
 
 app.use(express.static('public'));
 app.use('/', express.static('public'));

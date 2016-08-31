@@ -3,14 +3,7 @@ var ObjectID = require('mongodb').ObjectID;
 var sharp = require('sharp');
 var fs = require('fs');
 
-var homedir = (process.platform === 'win32') ? process.env.HOMEPATH : process.env.HOME;
-if (homedir.indexOf('Users') !== -1) {
-    homedir = 'D:/SoftwareAssets/public/';
-} else {
-    homedir = '/home/ec2-user/SoftwareAssets/public/';
-}
-
-var navController = function(basenav, localbasenav, indexnav, indexskip, pagesize) {
+var navController = function(basenav, localbasenav, indexnav, indexskip, pagesize, homedir) {
 
     var middleware = function(req, res, next) {
         next();
@@ -53,7 +46,6 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
     };
 
     var getInFolder = function (req, res) {
-        console.log('running: ', homedir);
         var folder = req.params.id;
         var url = 'mongodb://localhost:27017/library';
         mongodb.connect(url, function(err, db) {

@@ -1,0 +1,101 @@
+D:\Software Development Projects\Web Site 2016\src\routes\galleryroutes.js:8
+if (homedir.indexOf('Users') !== -1) {
+           ^
+
+TypeError: Cannot read property 'indexOf' of undefined
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\src\routes\galleryroutes.js:8:12)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Module.require (module.js:367:17)
+    at require (internal/module.js:16:19)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:26:21)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\Web Site 2016\src\routes\galleryroutes.js:8
+if (homedir.indexOf('Users') !== -1) {
+           ^
+
+TypeError: Cannot read property 'indexOf' of undefined
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\src\routes\galleryroutes.js:8:12)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Module.require (module.js:367:17)
+    at require (internal/module.js:16:19)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:26:21)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\Web Site 2016\src\routes\galleryroutes.js:8
+if (homedir.indexOf('Users') !== -1) {
+           ^
+
+TypeError: Cannot read property 'indexOf' of undefined
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\src\routes\galleryroutes.js:8:12)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Module.require (module.js:367:17)
+    at require (internal/module.js:16:19)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:26:21)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\Web Site 2016\app.js:35
+if (homedir.indexOf('Users') !== -1) {
+           ^
+
+TypeError: Cannot read property 'indexOf' of undefined
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:35:12)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\Web Site 2016\app.js:35
+if (homedir.indexOf('Users') !== -1) {
+           ^
+
+TypeError: Cannot read property 'indexOf' of undefined
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:35:12)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+D:\Software Development Projects\Web Site 2016\app.js:35
+if (homedir.indexOf('Users') !== -1) {
+           ^
+
+TypeError: Cannot read property 'indexOf' of undefined
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:35:12)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+Wed, 31 Aug 2016 19:00:28 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Wed, 31 Aug 2016 19:00:28 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
