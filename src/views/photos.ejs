@@ -10,7 +10,6 @@
     <title>Photography - Portfolio</title>
     <!-- Bootstrap core CSS -->
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="/css/jasny-bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -47,40 +46,43 @@
         </ul>
     </div>
 
-    <div class="canvas gallery"><br>
-        <h1 class="blog-post-title text-center"><%=theme%> - <%=results[0].folder%></h1>
-        <span class="title-divider"></span>
-
+    <div class="canvas"><br>
         <div id="container" class="container">
+
+            <div class="row marginr20">
+
+                <h1 class="blog-post-title text-center"><%=theme%> - <%=results[0].folder%></h1>
+                <span class="title-divider"></span>
+
+                <div class="col-md-6 col-sm-6 col-xs-4">
+                    <div id="gallery-header-center-left-title"></div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-8">
+                    <% if (!photoend) {%>
+                        <a href="/navigation/folder/<%=results[0].folder%>/+" class="gallery-header-center-right-links" id="nextpage">Next...</a>
+                    <%}%>
+                    <% for(var i = Math.floor((results.length-1)/10)+1; i > 0; i--) {%>
+                        <div class="gallery-header-center-right-links" alt="<%=results[(i-1)*10].subfolder%>" id="filter-<%=i%>"><%=i+Math.floor(indexnav/10)%>
+                        </div>
+                    <%}%>
+                    <% if (indexnav > 0) {%>
+                        <a href="/navigation/folder/<%=results[0].folder%>/-" class="gallery-header-center-right-links" id="prevpage">...Prev</a>
+                    <%}%>
+                </div>
+            </div>
+
+            <% if (isMovie) {%>
+            <div class="row marginr20">
+                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                    <a class="btn btn-primary" href="/navigation/video/<%=results[0].folder%>" >Videos</a>
+                </div>
+            </div>
+            <%}%>
+            <br>
+            <div class="row">
+            <br>
             <div id="gallery">
-                <div class="row">
-                    <div class="col-md-6 col-sm-9 col-xs-12">
-                        <div id="gallery-header-center-left">
-                            <div id="gallery-header-center-left-title"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-9 col-xs-12">
-                        <div id="gallery-header-center-right">
-                            <% if (indexnav > 0) {%>
-                                <a href="/navigation/folder/<%=results[0].folder%>/-" class="gallery-header-center-right-links" id="prevpage">...Prev</a>
-                            <%}%>
-                            <% for(var i = 1; i < (results.length/10) + 1; i++) {%>
-                                <div class="gallery-header-center-right-links" alt="<%=results[(i-1)*10].subfolder%>" id="filter-<%=i%>"><%=i+Math.floor(indexnav/10)%>
-                                </div>
-                            <%}%>
-                            <% if (!photoend) {%>
-                                <a href="/navigation/folder/<%=results[0].folder%>/+" class="gallery-header-center-right-links" id="nextpage">Next...</a>
-                            <%}%>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <% if (isMovie) {%>
-                    <div class="row">
-                        <div class="col-md-5 col-sm-4 col-xs-3"></div>
-                        <a class="nav nav-pills active" href="/navigation/video/<%=results[0].folder%>" >Click to see Videos</a><br>
-                    </div>
-                <%}%>
                 <div id="gallery-content">
                     <div id="gallery-content-center">
                         <% for(var i = 0; i < results.length; i++) {%>
@@ -97,6 +99,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
     </div>
 
@@ -105,7 +108,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/jquery-ui-1.10.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/isotope.pkgd.min.js"></script>
     <script type="text/javascript" src="/js/animated-masonry-gallery.js"></script>
     <script src="/js/jasny-bootstrap.min.js"></script>

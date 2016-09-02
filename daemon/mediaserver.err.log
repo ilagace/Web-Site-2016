@@ -99,3 +99,67 @@ TypeError: Cannot read property 'indexOf' of undefined
     at node.js:404:3
 Wed, 31 Aug 2016 19:00:28 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
 Wed, 31 Aug 2016 19:00:28 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+TypeError: D:\Software Development Projects\Web Site 2016\src\views\photos.ejs:64
+    62|                             <%}%>
+    63|                             <% for(var i = (results.length/10); i > 0; i--) {%>
+ >> 64|                                 <div class="gallery-header-center-right-links" alt="<%=results[(i-1)*10].subfolder%>" id="filter-<%=i%>"><%=i+Math.floor(indexnav/10)%>
+    65|                                 </div>
+    66|                             <%}%>
+    67|                             <% if (indexnav > 0) {%>
+
+Cannot read property 'subfolder' of undefined
+    at eval (eval at <anonymous> (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:485:12), <anonymous>:39:40)
+    at returnedFn (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:514:17)
+    at View.exports.renderFile [as engine] (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:358:31)
+    at View.render (D:\Software Development Projects\node_modules\express\lib\view.js:126:8)
+    at tryRender (D:\Software Development Projects\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:961:7)
+    at oncomplete (D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:112:37)
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:98:49
+TypeError: D:\Software Development Projects\Web Site 2016\src\views\photos.ejs:64
+    62|                             <%}%>
+    63|                             <% for(var i = Math.floor(results.length/10)+1; i > 0; i--) {%>
+ >> 64|                                 <div class="gallery-header-center-right-links" alt="<%=results[(i-1)*10].subfolder%>" id="filter-<%=i%>"><%=i+Math.floor(indexnav/10)%>
+    65|                                 </div>
+    66|                             <%}%>
+    67|                             <% if (indexnav > 0) {%>
+
+Cannot read property 'subfolder' of undefined
+    at eval (eval at <anonymous> (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:485:12), <anonymous>:39:40)
+    at returnedFn (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:514:17)
+    at View.exports.renderFile [as engine] (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:358:31)
+    at View.render (D:\Software Development Projects\node_modules\express\lib\view.js:126:8)
+    at tryRender (D:\Software Development Projects\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:961:7)
+    at oncomplete (D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:112:37)
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:98:49
+TypeError: D:\Software Development Projects\Web Site 2016\src\views\photos.ejs:64
+    62|                             <%}%>
+    63|                             <% for(var i = Math.floor(results.length/10)+1; i > 0; i--) {%>
+ >> 64|                                 <div class="gallery-header-center-right-links" alt="<%=results[(i-1)*10].subfolder%>" id="filter-<%=i%>"><%=i+Math.floor(indexnav/10)%>
+    65|                                 </div>
+    66|                             <%}%>
+    67|                             <% if (indexnav > 0) {%>
+
+Cannot read property 'subfolder' of undefined
+    at eval (eval at <anonymous> (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:485:12), <anonymous>:39:40)
+    at returnedFn (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:514:17)
+    at View.exports.renderFile [as engine] (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:358:31)
+    at View.render (D:\Software Development Projects\node_modules\express\lib\view.js:126:8)
+    at tryRender (D:\Software Development Projects\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:961:7)
+    at oncomplete (D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:112:37)
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:98:49
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Thu, 01 Sep 2016 22:33:57 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:53:9
+Thu, 01 Sep 2016 22:33:57 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:53:9
