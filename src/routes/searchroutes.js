@@ -1,49 +1,34 @@
 var express = require('express');
 
 var mongodb = require('mongodb').MongoClient;
+var ObjectID = require('mongodb').ObjectID;
 
-var authRouter = express.Router();
+var searchrouter = express.Router();
 
-var passport = require('passport');
+var router = function(basenav, localbasenav, indexnav, indexskip, pagesize, homedir) {
 
-var router = function() {
-    authRouter.route('/signup')
-        .post(function(req, res) {
-            console.log(req.body);
-            var url = 'mongodb://localhost:27017/library';
-            mongodb.connect(url, function(err,db) {
-                var collection = db.collection('users');
-                var user = {
-                    username: req.body.userName,
-                    password: req.body.password
-                };
-                collection.insert(user, function(err,results) {
-                    req.login(results.ops[0], function() {
-                        res.redirect('/auth/profile');
-                    });
-                });
-            });
-        });
+    var searchController = require('../controllers/searchController')(basenav, localbasenav, indexnav, indexskip, pagesize, homedir);
 
-    authRouter.route('/signin')
-        .post(passport.authenticate('local', {
-            failureRedirect: '/'}),
-            function(req, res) {
-                res.redirect('/auth/profile');
-            });
+    searchrouter.use(searchController.middleware);
 
-    authRouter.route('/profile')
-        .all(function(req, res, next) {
-            if (!req.user) {
-                res.redirect('/');
-            }
-            next();
-        })
-        .get(function(req, res) {
-            res.json(req.user);
-        });
+    searchrouter.route('/').get(searchController.getEmpty);
 
-    return authRouter;
+    searchrouter.route('/postyear').post(searchController.postYear);
+
+    searchrouter.route('/posttext').post(searchController.postText);
+
+    searchrouter.route('/year/:id').get(searchController.getYear);
+
+    searchrouter.route('/text/:id').get(searchController.getText);
+
+    searchrouter.route('/skip/:id/:page').get(searchController.getSkipIndex);
+
+    searchrouter.route('/videoyear/:id').get(searchController.showVideoYear);
+
+    searchrouter.route('/videotext/:id').get(searchController.showVideoText);
+
+    return searchrouter;
+
 };
 
 module.exports = router;

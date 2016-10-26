@@ -13,3 +13,45 @@
 2016-09-01 17:46:26 - Finished mediaserver.exe
 2016-09-01 18:33:56 - Starting D:\Program Files\nodejs\node.exe --harmony "C:\Users\Ivan\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js" -f "D:\Software Development Projects\Web Site 2016\app.js" -l "Media-Server" -g 0.25 -w 1 -r 3 -a n
 2016-09-01 18:33:56 - Started 53080
+2016-09-14 19:36:44 - Stopping mediaserver.exe
+2016-09-14 19:36:44 - ProcessKill 53080
+2016-09-14 19:36:44 - Finished mediaserver.exe
+2016-09-14 19:38:53 - Starting D:\Program Files\nodejs\node.exe --harmony "C:\Users\Ivan\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js" -f "D:\Software Development Projects\Web Site 2016\app.js" -l "Media-Server" -g 0.25 -w 1 -r 3 -a n
+2016-09-14 19:38:54 - Started 3164
+2016-09-28 07:27:05 - Stopping mediaserver.exe
+2016-09-28 07:27:05 - ProcessKill 3164
+2016-09-28 07:27:05 - Finished mediaserver.exe
+2016-09-28 07:27:09 - Starting D:\Program Files\nodejs\node.exe --harmony "C:\Users\Ivan\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js" -f "D:\Software Development Projects\Web Site 2016\app.js" -l "Media-Server" -g 0.25 -w 1 -r 3 -a n
+2016-09-28 07:27:10 - Started 16892
+2016-09-30 03:42:25 - Stopping mediaserver.exe
+2016-09-30 03:42:26 - ProcessKill 16892
+2016-09-30 03:42:26 - Finished mediaserver.exe
+2016-09-30 04:33:39 - Starting D:\Program Files\nodejs\node.exe --harmony "C:\Users\Ivan\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js" -f "D:\Software Development Projects\Web Site 2016\app.js" -l "Media-Server" -g 0.25 -w 1 -r 3 -a n
+2016-09-30 04:33:40 - Started 1144
+2016-09-30 17:46:09 - Stopping mediaserver.exe
+2016-09-30 17:46:09 - ProcessKill 1144
+2016-09-30 17:46:09 - Finished mediaserver.exe
+2016-09-30 17:47:43 - Starting D:\Program Files\nodejs\node.exe --harmony "C:\Users\Ivan\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js" -f "D:\Software Development Projects\Web Site 2016\app.js" -l "Media-Server" -g 0.25 -w 1 -r 3 -a n
+2016-09-30 17:47:44 - Started 4208
+2016-10-03 11:44:58 - Starting D:\Program Files\nodejs\node.exe --harmony "C:\Users\Ivan\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js" -f "D:\Software Development Projects\Web Site 2016\app.js" -l "Media-Server" -g 0.25 -w 1 -r 3 -a n
+2016-10-03 11:45:00 - Started 3212
+2016-10-12 17:47:40 - Stopping mediaserver.exe
+2016-10-12 17:47:40 - ProcessKill 3212
+2016-10-12 17:47:40 - Finished mediaserver.exe
+2016-10-12 17:49:58 - Starting D:\Program Files\nodejs\node.exe --harmony "C:\Users\Ivan\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js" -f "D:\Software Development Projects\Web Site 2016\app.js" -l "Media-Server" -g 0.25 -w 1 -r 3 -a n
+2016-10-12 17:49:59 - Started 4356
+2016-10-13 13:50:45 - Starting D:\Program Files\nodejs\node.exe --harmony "C:\Users\Ivan\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js" -f "D:\Software Development Projects\Web Site 2016\app.js" -l "Media-Server" -g 0.25 -w 1 -r 3 -a n
+2016-10-13 13:50:47 - Started 4452
+2016-10-26 13:55:58 - Stopping mediaserver.exe
+2016-10-26 13:55:58 - ProcessKill 4452
+2016-10-26 13:55:58 - Finished mediaserver.exe
+2016-10-26 13:56:00 - Starting D:\Program Files\nodejs\node.exe --harmony "C:\Users\Ivan\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js" -f "D:\Software Development Projects\Web Site 2016\app.js" -l "Media-Server" -g 0.25 -w 1 -r 3 -a n
+2016-10-26 13:56:00 - Started 15200
+2016-10-26 14:02:23 - Stopping mediaserver.exe
+2016-10-26 14:02:23 - ProcessKill 15200
+2016-10-26 14:02:23 - Finished mediaserver.exe
+2016-10-26 14:02:24 - Starting D:\Program Files\nodejs\node.exe --harmony "C:\Users\Ivan\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js" -f "D:\Software Development Projects\Web Site 2016\app.js" -l "Media-Server" -g 0.25 -w 1 -r 3 -a n
+2016-10-26 14:02:24 - Started 10060
+2016-10-26 14:02:56 - Stopping mediaserver.exe
+2016-10-26 14:02:56 - ProcessKill 10060
+2016-10-26 14:02:56 - Finished mediaserver.exe

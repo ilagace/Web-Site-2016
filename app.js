@@ -41,6 +41,7 @@ console.log('homedir: ',homedir,'Starting directory:', process.cwd());
 var navrouter = require('./src/routes/navroutes')(basenav, localbasenav, indexnav, indexskip, pagesize, homedir);
 var adminrouter = require('./src/routes/adminroutes')(basenav, localbasenav, category, io);
 var galleryrouter = require('./src/routes/galleryroutes')(basenav, localbasenav, category, homedir);
+var searchrouter = require('./src/routes/searchroutes')(basenav, localbasenav, indexnav, indexskip, pagesize, homedir);
 var approuter = require('./src/routes/approutes')(appdir);
 
 app.use(express.static('public'));
@@ -58,6 +59,7 @@ app.set('view engine','ejs');
 
 app.use('/navigation', navrouter);
 app.use('/admin', adminrouter);
+app.use('/search', searchrouter);
 app.use('/gallery', galleryrouter);
 app.use('//', approuter);
 
