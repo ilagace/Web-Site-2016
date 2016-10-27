@@ -41,11 +41,15 @@ var searchController = function(basenav, localbasenav, indexnav, indexskip, page
     };
 
     var postYear = function (req, res) {
+        indexnav = 0;
+        page = 0;
         var searchData = req.body.year;
         res.redirect('/search/year/' + searchData);
     };
 
     var postText = function (req, res) {
+        indexnav = 0;
+        page = 0;
         var searchData = req.body.text;
         res.redirect('/search/text/' + searchData);
     };
@@ -125,7 +129,7 @@ var searchController = function(basenav, localbasenav, indexnav, indexskip, page
                         } else {
                             res.render('search', {stype: '', results: [],
                                             pagesize: pagesize, indexnav: 0, photoend: true,
-                                            isMovie: false, title: 'No photo for: ' + year, page: 0,
+                                            isMovie: false, title: 'No photo for: ' + year, page: -1,
                                             total: 0, vtype: ''});
                             db.close();
                         }
@@ -210,7 +214,7 @@ var searchController = function(basenav, localbasenav, indexnav, indexskip, page
                         } else {
                             res.render('search', {stype: '', results: [],
                                             pagesize: pagesize, indexnav: 0, photoend: true,
-                                            isMovie: false, title: 'No photo for: ' + text, page: 0,
+                                            isMovie: false, title: 'No photo for: ' + text, page: -1,
                                             total: 0, vtype: ''});
                             db.close();
                         }

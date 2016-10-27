@@ -1592,3 +1592,24 @@ Wed, 26 Oct 2016 17:56:13 GMT express-session deprecated undefined resave option
 Wed, 26 Oct 2016 17:56:13 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
 Wed, 26 Oct 2016 18:02:32 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
 Wed, 26 Oct 2016 18:02:32 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Wed, 26 Oct 2016 20:55:20 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Wed, 26 Oct 2016 20:55:20 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Error: Failed to lookup view "H67signin" in views directory "./src/views"
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:579:17)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\index.js:271:10)
+    at middleware (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:18:9)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Software Development Projects\node_modules\express\lib\router\index.js:312:13)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:280:7
+Thu, 27 Oct 2016 12:48:51 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Thu, 27 Oct 2016 12:48:51 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
