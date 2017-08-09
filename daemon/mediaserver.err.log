@@ -2792,3 +2792,5 @@ TypeError: Cannot read property 'collection' of null
     at process._tickCallback (internal/process/next_tick.js:98:9)
 Wed, 09 Aug 2017 16:21:01 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:55:9
 Wed, 09 Aug 2017 16:21:01 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Wed, 09 Aug 2017 18:11:43 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Wed, 09 Aug 2017 18:11:43 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:55:9
