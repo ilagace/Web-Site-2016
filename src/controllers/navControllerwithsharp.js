@@ -74,13 +74,50 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                     results[k].subfolder = '';
                                 }
                             }
-                            res.render('photos',  {nav: ['Back', 'Theme'],
-                                        link: ['/navigation/' + themeid, '/navigation/'] ,
-                                        theme: basenav[themeid], results: results,
-                                        pagesize: pagesize, indexnav: indexnav, photoend: photoend,
-                                        isMovie: isMovie
+                            // create smaller photos to speed up the load process
+                            var deldone = false;
+                            for (var i = 0; i < results.length; i++) {
+                                fs.unlink(homedir + 'sharp/temp' + parseInt(i), function() {
+                                    if (deldone) {
+                                        // wait until all files deleted before resizing
+                                        deldone = false;
+                                        for (var j = 0; j < results.length; j++) {
+                                            var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' +
+                                                results[j].folder + '/' + results[j].filename);
+                                            resize(j, image, results[j].filename);
+                                        }
+                                    }
+                                });
+                            }
+                            deldone = true;
+                            function resize(k, image, filename) {
+                                image.metadata().then(function(metadata) {
+                                    if (metadata.width > metadata.height) {
+                                        image.resize(300, null).toFile(homedir + 'sharp/temp' + parseInt(k), function(err) {
+                                            if (k === results.length - 1) {
+                                                oncomplete();
+                                            }
                                         });
-                            db.close();
+                                    } else {
+                                        image.resize(null, 500).toFile(homedir + 'sharp/temp' + parseInt(k), function(err) {
+                                            if (k === results.length - 1) {
+                                                oncomplete();
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                            // launch the web page only once the conversion is completed
+                            function oncomplete() {
+                                res.render('photos',  {nav: ['Back', 'Theme'],
+                                            link: ['/navigation/' + themeid, '/navigation/'] ,
+                                            theme: basenav[themeid], results: results,
+                                            pagesize: pagesize, indexnav: indexnav, photoend: photoend,
+                                            isMovie: isMovie
+                                            });
+                                db.close();
+
+                            }
                         } else {
                             res.render('navigation', {nav: basenav, link: '/navigation/'});
                             db.close();

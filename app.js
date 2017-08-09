@@ -7,8 +7,9 @@ var io = require('socket.io')(server);
 
 server.listen(3010, '127.0.0.1');
 
-var port = process.env.PORT || 3000;
-
+//var port = process.env.PORT || 3000;
+var port = 3000;
+console.log('process env port: ', process.env.PORT);
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');

@@ -1613,3 +1613,1182 @@ Error: Failed to lookup view "H67signin" in views directory "./src/views"
     at D:\Software Development Projects\node_modules\express\lib\router\index.js:280:7
 Thu, 27 Oct 2016 12:48:51 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
 Thu, 27 Oct 2016 12:48:51 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Error: Failed to lookup view "H67signin" in views directory "./src/views"
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:579:17)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\index.js:271:10)
+    at middleware (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:18:9)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Software Development Projects\node_modules\express\lib\router\index.js:312:13)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:280:7
+Mon, 31 Oct 2016 15:58:49 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 31 Oct 2016 15:58:49 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 31 Oct 2016 17:43:32 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 31 Oct 2016 17:43:32 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 31 Oct 2016 17:47:34 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 31 Oct 2016 17:47:34 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Error: Failed to lookup view "H67signin" in views directory "./src/views"
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:579:17)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\index.js:271:10)
+    at middleware (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:18:9)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Software Development Projects\node_modules\express\lib\router\index.js:312:13)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:280:7
+Fri, 04 Nov 2016 22:00:51 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Fri, 04 Nov 2016 22:00:51 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sat, 05 Nov 2016 04:37:45 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sat, 05 Nov 2016 04:37:45 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sat, 05 Nov 2016 10:43:32 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sat, 05 Nov 2016 10:43:32 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sat, 05 Nov 2016 16:26:20 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sat, 05 Nov 2016 16:26:20 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sat, 05 Nov 2016 16:59:01 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sat, 05 Nov 2016 16:59:01 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sat, 05 Nov 2016 22:22:51 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sat, 05 Nov 2016 22:22:51 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Error: Failed to lookup view "H67signin" in views directory "./src/views"
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:579:17)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\index.js:271:10)
+    at middleware (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:18:9)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Software Development Projects\node_modules\express\lib\router\index.js:312:13)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:280:7
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\routes\galleryroutes.js:19:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 00:37:52 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 00:37:52 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 01:13:20 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 01:13:20 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 04:17:30 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 04:17:30 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 04:45:31 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 04:45:31 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 07:23:17 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 07:23:17 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:135:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 08:34:18 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 08:34:18 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 10:26:35 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 10:26:35 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 11:05:59 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 11:05:59 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 16:14:41 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 16:14:41 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\routes\galleryroutes.js:19:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 16:26:20 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 16:26:20 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\routes\galleryroutes.js:19:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 16:27:33 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 16:27:33 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 16:50:12 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 16:50:12 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:135:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 20:53:54 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 20:53:54 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Sun, 06 Nov 2016 23:28:12 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 06 Nov 2016 23:28:12 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Mon, 07 Nov 2016 02:11:57 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 07 Nov 2016 02:11:57 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Mon, 07 Nov 2016 04:08:00 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 07 Nov 2016 04:08:00 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Mon, 07 Nov 2016 10:51:45 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 07 Nov 2016 10:51:45 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Mon, 07 Nov 2016 15:54:10 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 07 Nov 2016 15:54:10 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\searchController.js:61:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Mon, 07 Nov 2016 18:15:20 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 07 Nov 2016 18:15:20 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Mon, 07 Nov 2016 22:24:22 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 07 Nov 2016 22:24:22 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Tue, 08 Nov 2016 03:48:43 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 08 Nov 2016 03:48:43 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Tue, 08 Nov 2016 05:11:02 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 08 Nov 2016 05:11:02 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Tue, 08 Nov 2016 11:38:46 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 08 Nov 2016 11:38:46 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Tue, 08 Nov 2016 13:59:10 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 08 Nov 2016 13:59:10 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Tue, 08 Nov 2016 15:46:17 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 08 Nov 2016 15:46:17 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Tue, 08 Nov 2016 16:07:29 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 08 Nov 2016 16:07:29 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Tue, 08 Nov 2016 16:37:39 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 08 Nov 2016 16:37:39 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:52:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Tue, 08 Nov 2016 17:08:24 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 08 Nov 2016 17:08:24 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:135:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Tue, 08 Nov 2016 17:40:18 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 08 Nov 2016 17:40:18 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:135:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Tue, 08 Nov 2016 18:13:33 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 08 Nov 2016 18:13:33 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:21:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Tue, 08 Nov 2016 20:30:02 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 08 Nov 2016 20:30:02 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Thu, 10 Nov 2016 22:36:17 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Thu, 10 Nov 2016 22:36:17 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Error: Failed to lookup view "H67signin" in views directory "./src/views"
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:579:17)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\index.js:271:10)
+    at middleware (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:18:9)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Software Development Projects\node_modules\express\lib\router\index.js:312:13)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:280:7
+Wed, 23 Nov 2016 13:28:13 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Wed, 23 Nov 2016 13:28:13 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 11 Dec 2016 22:44:46 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Sun, 11 Dec 2016 22:44:46 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Thu, 15 Dec 2016 12:44:43 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Thu, 15 Dec 2016 12:44:43 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Error: Failed to lookup view "H67signin" in views directory "./src/views"
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:579:17)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\index.js:271:10)
+    at middleware (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:18:9)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Software Development Projects\node_modules\express\lib\router\index.js:312:13)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:280:7
+Tue, 10 Jan 2017 17:32:45 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 10 Jan 2017 17:32:45 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Thu, 12 Jan 2017 22:47:00 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Thu, 12 Jan 2017 22:47:00 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Wed, 18 Jan 2017 11:23:56 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Wed, 18 Jan 2017 11:23:56 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 06 Feb 2017 22:26:47 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 06 Feb 2017 22:26:47 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Error: Failed to lookup view "H67signin" in views directory "./src/views"
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:579:17)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\index.js:271:10)
+    at middleware (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:18:9)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Software Development Projects\node_modules\express\lib\router\index.js:312:13)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:280:7
+Error: Failed to lookup view "H67signin" in views directory "./src/views"
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:579:17)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\index.js:271:10)
+    at middleware (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:18:9)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Software Development Projects\node_modules\express\lib\router\index.js:312:13)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:280:7
+Error: Failed to lookup view "H67signin" in views directory "./src/views"
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:579:17)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\index.js:271:10)
+    at middleware (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:18:9)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Software Development Projects\node_modules\express\lib\router\index.js:312:13)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:280:7
+Thu, 23 Feb 2017 01:18:32 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Thu, 23 Feb 2017 01:18:32 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+ReferenceError: D:\Software Development Projects\Web Site 2016\src\views\comicspage.ejs:19
+    17|       </div>
+    18|     </div>
+ >> 19|     <% for(var i = 0; i < data.length; i++) {%>
+    20|     <div class="row">
+    21|       <div class="col-md-12">
+    22|         <h3 class="text-left"><%=data[i][1]%></h3>
+
+data is not defined
+    at eval (eval at <anonymous> (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:491:12), <anonymous>:11:27)
+    at returnedFn (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:520:17)
+    at View.exports.renderFile [as engine] (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:374:31)
+    at View.render (D:\Software Development Projects\node_modules\express\lib\view.js:126:8)
+    at tryRender (D:\Software Development Projects\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+ReferenceError: D:\Software Development Projects\Web Site 2016\src\views\comicspage.ejs:19
+    17|       </div>
+    18|     </div>
+ >> 19|     <% for(var i = 0; i < data.length; i++) {%>
+    20|     <div class="row">
+    21|       <div class="col-md-12">
+    22|         <h3 class="text-left"><%=data[i][1]%></h3>
+
+data is not defined
+    at eval (eval at <anonymous> (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:491:12), <anonymous>:11:27)
+    at returnedFn (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:520:17)
+    at View.exports.renderFile [as engine] (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:374:31)
+    at View.render (D:\Software Development Projects\node_modules\express\lib\view.js:126:8)
+    at tryRender (D:\Software Development Projects\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+Thu, 16 Mar 2017 22:01:15 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Thu, 16 Mar 2017 22:01:15 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+
+D:\Software Development Projects\node_modules\mongodb\lib\utils.js:98
+    process.nextTick(function() { throw err; });
+                                  ^
+MongoError: skip requires an integer
+    at Function.MongoError.create (D:\Software Development Projects\node_modules\mongodb-core\lib\error.js:31:11)
+    at Cursor.skip (D:\Software Development Projects\node_modules\mongodb\lib\cursor.js:624:49)
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:63:42
+    at handleCallback (D:\Software Development Projects\node_modules\mongodb\lib\utils.js:96:12)
+    at D:\Software Development Projects\node_modules\mongodb\lib\collection.js:2048:5
+    at handleCallback (D:\Software Development Projects\node_modules\mongodb\lib\utils.js:96:12)
+    at D:\Software Development Projects\node_modules\mongodb\lib\db.js:309:5
+    at D:\Software Development Projects\node_modules\mongodb-core\lib\connection\pool.js:436:18
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Mon, 20 Mar 2017 08:48:32 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 20 Mar 2017 08:48:32 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Error: Failed to lookup view "rss" in views directory "./src/views"
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:579:17)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\index.js:271:10)
+    at middleware (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:18:9)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Software Development Projects\node_modules\express\lib\router\index.js:312:13)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:280:7
+Tue, 04 Apr 2017 12:05:29 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 04 Apr 2017 12:05:29 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+ReferenceError: D:\Software Development Projects\Web Site 2016\src\views\comicsedit.ejs:30
+    28|         <div class="col-md-12">
+    29|         <h3></h3>
+ >> 30|           <% for(var i = 0; i < data.length; i++) {%>
+    31|           <div class="checkbox-inline">
+    32|             <% if (datacheck[i] == 'checked') {%>
+    33|             <label><input id="select" name="<%=data[i][2]%>" type="checkbox"  checked ><%=data[i][1]%></label>
+
+data is not defined
+    at eval (eval at <anonymous> (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:491:12), <anonymous>:11:27)
+    at returnedFn (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:520:17)
+    at View.exports.renderFile [as engine] (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:374:31)
+    at View.render (D:\Software Development Projects\node_modules\express\lib\view.js:126:8)
+    at tryRender (D:\Software Development Projects\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+Wed, 12 Apr 2017 01:20:04 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Wed, 12 Apr 2017 01:20:04 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 17 Apr 2017 01:15:42 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Mon, 17 Apr 2017 01:15:42 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+ReferenceError: D:\Software Development Projects\Web Site 2016\src\views\comicsedit.ejs:30
+    28|         <div class="col-md-12">
+    29|         <h3></h3>
+ >> 30|           <% for(var i = 0; i < data.length; i++) {%>
+    31|           <div class="checkbox-inline">
+    32|             <% if (datacheck[i] == 'checked') {%>
+    33|             <label><input id="select" name="<%=data[i][2]%>" type="checkbox"  checked ><%=data[i][1]%></label>
+
+data is not defined
+    at eval (eval at <anonymous> (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:491:12), <anonymous>:11:27)
+    at returnedFn (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:520:17)
+    at View.exports.renderFile [as engine] (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:374:31)
+    at View.render (D:\Software Development Projects\node_modules\express\lib\view.js:126:8)
+    at tryRender (D:\Software Development Projects\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+ReferenceError: D:\Software Development Projects\Web Site 2016\src\views\comicsedit.ejs:30
+    28|         <div class="col-md-12">
+    29|         <h3></h3>
+ >> 30|           <% for(var i = 0; i < data.length; i++) {%>
+    31|           <div class="checkbox-inline">
+    32|             <% if (datacheck[i] == 'checked') {%>
+    33|             <label><input id="select" name="<%=data[i][2]%>" type="checkbox"  checked ><%=data[i][1]%></label>
+
+data is not defined
+    at eval (eval at <anonymous> (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:491:12), <anonymous>:11:27)
+    at returnedFn (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:520:17)
+    at View.exports.renderFile [as engine] (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:374:31)
+    at View.render (D:\Software Development Projects\node_modules\express\lib\view.js:126:8)
+    at tryRender (D:\Software Development Projects\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+ReferenceError: D:\Software Development Projects\Web Site 2016\src\views\comicsedit.ejs:30
+    28|         <div class="col-md-12">
+    29|         <h3></h3>
+ >> 30|           <% for(var i = 0; i < data.length; i++) {%>
+    31|           <div class="checkbox-inline">
+    32|             <% if (datacheck[i] == 'checked') {%>
+    33|             <label><input id="select" name="<%=data[i][2]%>" type="checkbox"  checked ><%=data[i][1]%></label>
+
+data is not defined
+    at eval (eval at <anonymous> (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:491:12), <anonymous>:11:27)
+    at returnedFn (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:520:17)
+    at View.exports.renderFile [as engine] (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:374:31)
+    at View.render (D:\Software Development Projects\node_modules\express\lib\view.js:126:8)
+    at tryRender (D:\Software Development Projects\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+Wed, 10 May 2017 04:20:07 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Wed, 10 May 2017 04:20:07 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Error: Failed to lookup view "H67signin" in views directory "./src/views"
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:579:17)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\index.js:271:10)
+    at middleware (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:18:9)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Software Development Projects\node_modules\express\lib\router\index.js:312:13)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:280:7
+D:\Software Development Projects\node_modules\mongodb\lib\utils.js:98
+    process.nextTick(function() { throw err; });
+                                  ^
+
+TypeError: Cannot read property 'password' of null
+    at D:\Software Development Projects\Web Site 2016\src\config\strategies\local.strategy.js:15:32
+    at handleCallback (D:\Software Development Projects\node_modules\mongodb\lib\utils.js:96:12)
+    at D:\Software Development Projects\node_modules\mongodb\lib\collection.js:1403:5
+    at handleCallback (D:\Software Development Projects\node_modules\mongodb\lib\utils.js:96:12)
+    at D:\Software Development Projects\node_modules\mongodb\lib\cursor.js:675:5
+    at handleCallback (D:\Software Development Projects\node_modules\mongodb-core\lib\cursor.js:172:5)
+    at setCursorNotified (D:\Software Development Projects\node_modules\mongodb-core\lib\cursor.js:517:3)
+    at D:\Software Development Projects\node_modules\mongodb-core\lib\cursor.js:590:16
+    at queryCallback (D:\Software Development Projects\node_modules\mongodb-core\lib\cursor.js:233:18)
+    at D:\Software Development Projects\node_modules\mongodb-core\lib\connection\pool.js:436:18
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Tue, 06 Jun 2017 00:15:02 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 06 Jun 2017 00:15:02 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Unhandled rejection Error: Input file is missing or of an unsupported image format
+    at Error (native)
+Tue, 06 Jun 2017 18:36:16 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 06 Jun 2017 18:36:16 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+events.js:154
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::3000
+    at Object.exports._errnoException (util.js:890:11)
+    at exports._exceptionWithHostPort (util.js:913:20)
+    at Server.__dirname.Server.Server._listen2 (net.js:1230:14)
+    at listen (net.js:1266:10)
+    at Server.__dirname.Server.Server.listen (net.js:1362:5)
+    at EventEmitter.listen (D:\Software Development Projects\node_modules\express\lib\application.js:617:24)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:70:5)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+Tue, 06 Jun 2017 18:36:18 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 06 Jun 2017 18:36:18 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+events.js:154
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::3000
+    at Object.exports._errnoException (util.js:890:11)
+    at exports._exceptionWithHostPort (util.js:913:20)
+    at Server.__dirname.Server.Server._listen2 (net.js:1230:14)
+    at listen (net.js:1266:10)
+    at Server.__dirname.Server.Server.listen (net.js:1362:5)
+    at EventEmitter.listen (D:\Software Development Projects\node_modules\express\lib\application.js:617:24)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:70:5)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+Tue, 06 Jun 2017 18:36:21 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 06 Jun 2017 18:36:21 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+events.js:154
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::3000
+    at Object.exports._errnoException (util.js:890:11)
+    at exports._exceptionWithHostPort (util.js:913:20)
+    at Server.__dirname.Server.Server._listen2 (net.js:1230:14)
+    at listen (net.js:1266:10)
+    at Server.__dirname.Server.Server.listen (net.js:1362:5)
+    at EventEmitter.listen (D:\Software Development Projects\node_modules\express\lib\application.js:617:24)
+    at Object.<anonymous> (D:\Software Development Projects\Web Site 2016\app.js:70:5)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Function.Module.runMain (module.js:447:10)
+    at startup (node.js:146:18)
+    at node.js:404:3
+Tue, 06 Jun 2017 18:38:44 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Tue, 06 Jun 2017 18:38:44 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:54:9
+Thu, 08 Jun 2017 11:28:18 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Thu, 08 Jun 2017 11:28:18 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Wed, 14 Jun 2017 21:47:03 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Wed, 14 Jun 2017 21:47:03 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+ReferenceError: D:\Software Development Projects\Web Site 2016\src\views\comicsedit.ejs:30
+    28|         <div class="col-md-12">
+    29|         <h3></h3>
+ >> 30|           <% for(var i = 0; i < data.length; i++) {%>
+    31|           <div class="checkbox-inline">
+    32|             <% if (datacheck[i] == 'checked') {%>
+    33|             <label><input id="select" name="<%=data[i][2]%>" type="checkbox"  checked ><%=data[i][1]%></label>
+
+data is not defined
+    at eval (eval at <anonymous> (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:491:12), <anonymous>:11:27)
+    at returnedFn (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:520:17)
+    at View.exports.renderFile [as engine] (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:374:31)
+    at View.render (D:\Software Development Projects\node_modules\express\lib\view.js:126:8)
+    at tryRender (D:\Software Development Projects\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+Thu, 20 Jul 2017 21:41:22 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Thu, 20 Jul 2017 21:41:22 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Tue, 25 Jul 2017 23:19:58 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Tue, 25 Jul 2017 23:19:58 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+ReferenceError: D:\Software Development Projects\Web Site 2016\src\views\comicsedit.ejs:30
+    28|         <div class="col-md-12">
+    29|         <h3></h3>
+ >> 30|           <% for(var i = 0; i < data.length; i++) {%>
+    31|           <div class="checkbox-inline">
+    32|             <% if (datacheck[i] == 'checked') {%>
+    33|             <label><input id="select" name="<%=data[i][2]%>" type="checkbox"  checked ><%=data[i][1]%></label>
+
+data is not defined
+    at eval (eval at <anonymous> (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:491:12), <anonymous>:11:27)
+    at returnedFn (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:520:17)
+    at View.exports.renderFile [as engine] (D:\Software Development Projects\node_modules\ejs\lib\ejs.js:374:31)
+    at View.render (D:\Software Development Projects\node_modules\express\lib\view.js:126:8)
+    at tryRender (D:\Software Development Projects\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (D:\Software Development Projects\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (D:\Software Development Projects\node_modules\express\lib\response.js:960:7)
+    at getApp (D:\Software Development Projects\Web Site 2016\src\controllers\appController.js:90:21)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Software Development Projects\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (D:\Software Development Projects\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\Software Development Projects\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Software Development Projects\node_modules\express\lib\router\index.js:277:22
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:349:14)
+    at param (D:\Software Development Projects\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\Software Development Projects\node_modules\express\lib\router\index.js:410:3)
+Tue, 08 Aug 2017 16:35:28 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Tue, 08 Aug 2017 16:35:28 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Tue, 08 Aug 2017 22:07:47 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Tue, 08 Aug 2017 22:07:47 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:21:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Wed, 09 Aug 2017 16:18:29 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Wed, 09 Aug 2017 16:18:29 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:21:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Wed, 09 Aug 2017 16:18:40 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Wed, 09 Aug 2017 16:18:40 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:21:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Wed, 09 Aug 2017 16:18:48 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Wed, 09 Aug 2017 16:18:48 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:225
+          throw err
+          ^
+
+TypeError: Cannot read property 'collection' of null
+    at D:\Software Development Projects\Web Site 2016\src\controllers\navController.js:21:32
+    at connectCallback (D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:315:5)
+    at D:\Software Development Projects\node_modules\mongodb\lib\mongo_client.js:222:11
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+    at process._tickCallback (internal/process/next_tick.js:98:9)
+Wed, 09 Aug 2017 16:21:01 GMT express-session deprecated undefined resave option; provide resave option at D:\Software Development Projects\Web Site 2016\app.js:55:9
+Wed, 09 Aug 2017 16:21:01 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at D:\Software Development Projects\Web Site 2016\app.js:55:9

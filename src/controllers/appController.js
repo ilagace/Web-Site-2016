@@ -35,7 +35,7 @@ var appController = function(appdir) {
             });
             fs.createReadStream(appdir + 'SoftwareAssets/public/comics/listlocal').pipe(parserin);
         } else {
-            if (appName.indexOf('comicsedit') !== -1) {
+            if (appName.indexOf('comicseditdisable') !== -1) {
                 var fsgo = fs.createWriteStream(appdir + 'SoftwareAssets/public/comics/listgo');
                 var fsoregon = fs.createWriteStream(appdir + 'SoftwareAssets/public/comics/listoregon');
                 var parser = parse({delimiter: ','}, function(err, data) {

@@ -89,9 +89,9 @@
                             <% if (results[i].filename.indexOf('specialdiapos') !== -1) {%>
                                 <a href="/navigation/diapos/<%=results[i].filename.substr(results[i].filename.indexOf('specialdiapos') + 13,3)%>">
                             <%} else {%>
-                                <a href="https://s3-us-west-2.amazonaws.com/ivanweb/<%=results[i].folder%>/<%=results[i].filename%>" data-lightbox="studio1">
+                                <a href="/assets/<%=theme%>/<%=results[i].folder%>/<%=results[i].filename%>" data-lightbox="studio1">
                             <%}%>
-                            <img src="https://s3-us-west-2.amazonaws.com/ivanweb/<%=results[i].folder%>/smallPhotos/temp<%=i%>.jpg"
+                            <img src="/sharp/temp<%=i%>"
                             class="<%=Math.floor((i/10) + 1)%>"
                             alt="Dim: <%=results[i].photoDimW%> x <%=results[i].photoDimH%>, <%=results[i].camera%>
                             <%=results[i].description%> <%=results[i].reverseGeo%>" id="photo<%=i%>">  </a>
