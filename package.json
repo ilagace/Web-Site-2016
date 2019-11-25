@@ -26,7 +26,7 @@
     "jade": "^1.11.0",
     "jsonfile": "^2.3.1",
     "mongodb": "^2.1.17",
-    "mongoose": "^4.4.20",
+    "mongoose": "^5.7.12",
     "mssql": "^3.2.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
