@@ -70,6 +70,22 @@
                         <a href="/navigation/folder/<%=results[0].folder%>/-" class="gallery-header-center-right-links" id="prevpage">...Prev</a>
                     <%}%>
                 </div>
+                <div class="col-md-6 col-sm-6 col-xs-4">
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-8">
+                    <% if (!photoend) {%>
+                        <a href="/navigation/folder/<%=results[0].folder%>/l" class="gallery-header-center-right-links" id="lastpage">Last</a>
+                    <%}%>
+                    <% if (photoplus9) {%>
+                        <a href="/navigation/folder/<%=results[0].folder%>/p" class="gallery-header-center-right-links" id="pluspage">+9</a>
+                    <%}%>
+                    <% if (photominus9) {%>
+                        <a href="/navigation/folder/<%=results[0].folder%>/m" class="gallery-header-center-right-links" id="minuspage">-9</a>
+                    <%}%>
+                    <% if (indexnav > 0) {%>
+                        <a href="/navigation/folder/<%=results[0].folder%>/f" class="gallery-header-center-right-links" id="firstpage">First</a>
+                    <%}%>
+                </div>
             </div>
 
             <% if (isMovie) {%>
@@ -89,9 +105,9 @@
                             <% if (results[i].filename.indexOf('specialdiapos') !== -1) {%>
                                 <a href="/navigation/diapos/<%=results[i].filename.substr(results[i].filename.indexOf('specialdiapos') + 13,3)%>">
                             <%} else {%>
-                                <a href="https://s3-us-west-2.amazonaws.com/ivanweb/<%=results[i].folder%>/<%=results[i].filename%>" data-lightbox="studio1">
+                                <a href="https://s3-us-west-2.amazonaws.com/ivanweb/<%=theme%>/<%=results[i].folder%>/<%=results[i].filename%>" data-lightbox="studio1">
                             <%}%>
-                            <img src="https://s3-us-west-2.amazonaws.com/ivanweb/<%=results[i].folder%>/smallPhotos/temp<%=i%>.jpg"
+                            <img src="https://s3-us-west-2.amazonaws.com/ivanweb/<%=theme%>/<%=results[i].folder%>/smallPhotos/<%=results[i].filename%>"
                             class="<%=Math.floor((i/10) + 1)%>"
                             alt="Dim: <%=results[i].photoDimW%> x <%=results[i].photoDimH%>, <%=results[i].camera%>
                             <%=results[i].description%> <%=results[i].reverseGeo%>" id="photo<%=i%>">  </a>

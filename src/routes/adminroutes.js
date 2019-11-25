@@ -21,7 +21,7 @@ var GoogleMapsAPI = require('googlemaps');
 
 var iconv = require('iconv-lite');
 
-var imagetype = ['.jpg', 'JPG','.bmp','m4v','avi','mov','MOV'];
+var imagetype = ['.jpg', 'JPG','.bmp','m4v','avi','mov','MOV','mp4','MP4'];
 
 var isNewFolder = false;
 var urlParam = '';
@@ -77,6 +77,7 @@ var router = function(basenav, localbasenav, category, io) {
     });
 
     adminrouter.route('/mediadata').get(function(req, res) {
+        console.log('check database');
         var movietype = ['.avi', 'mp4','.MOV','mov'];
         var photoArray = {};
         var folderList = {};
@@ -781,7 +782,8 @@ var router = function(basenav, localbasenav, category, io) {
                     // Check for movies
                     var mediaType = 'photo';
                     var text = null;
-                    if (fileStats.name.indexOf('MOV') !== -1 || fileStats.name.indexOf('mov') !== -1) {
+                    if (fileStats.name.indexOf('MOV') !== -1 || fileStats.name.indexOf('mov') !== -1 ||
+                        fileStats.name.indexOf('MP4') !== -1 || fileStats.name.indexOf('mp4') !== -1) {
                         mediaType = 'video';
                     }
                     // We are now inside the image folder and we check first if photo/video already in database

@@ -69,5 +69,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(port, function (err) {
-    console.log('running server on port ' + port);
+    console.log('running server on port ' + port, 'nosharp');
 });

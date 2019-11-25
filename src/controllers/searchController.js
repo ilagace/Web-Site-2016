@@ -1,6 +1,5 @@
 var mongodb = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
-var sharp = require('sharp');
 var fs = require('fs');
 var page = 0;
 var total = 0;
@@ -76,56 +75,20 @@ var searchController = function(basenav, localbasenav, indexnav, indexskip, page
                             if (photocount > (indexnav + results.length)) {
                                 photoend =  false;
                             }
-                            // if folder name is v8x6 then remove it from the results
+                            // get theme and if folder name is v8x6 then remove it from the results
                             for (var k = 0; k < results.length; k++) {
+                                var themeid = localbasenav.indexOf(results[k].theme);
+                                results[k].theme = basenav[themeid];
                                 if (results[k].subfolder === 'v8x6') {
                                     results[k].subfolder = '';
                                 }
                             }
-                            // create smaller photos to speed up the load process
-                            var deldone = false;
-                            for (var i = 0; i < results.length; i++) {
-                                fs.unlink(homedir + 'sharp/temp' + parseInt(i), function() {
-                                    if (deldone) {
-                                        // wait until all files deleted before resizing
-                                        deldone = false;
-                                        for (var j = 0; j < results.length; j++) {
-                                            var themeid = localbasenav.indexOf(results[j].theme);
-                                            results[j].theme = basenav[themeid];
-                                            var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' +
-                                                results[j].folder + '/' + results[j].filename);
-                                            resize(j, image, results[j].filename);
-                                        }
-                                    }
-                                });
-                            }
-                            deldone = true;
-                            function resize(k, image, filename) {
-                                image.metadata().then(function(metadata) {
-                                    if (metadata.width > metadata.height) {
-                                        image.resize(300, null).toFile(homedir + 'sharp/temp' + parseInt(k), function(err) {
-                                            if (k === results.length - 1) {
-                                                oncomplete();
-                                            }
+                            res.render('search',  {stype: 'year&' + year, results: results,
+                                        pagesize: pagesize, indexnav: indexnav, photoend: photoend,
+                                        isMovie: isMovie, title: 'Search Year: ' + year, page: page,
+                                        total: Math.floor(photocount / pagesize) + 1, vtype: 'year/' + year
                                         });
-                                    } else {
-                                        image.resize(null, 500).toFile(homedir + 'sharp/temp' + parseInt(k), function(err) {
-                                            if (k === results.length - 1) {
-                                                oncomplete();
-                                            }
-                                        });
-                                    }
-                                });
-                            }
-                            // launch the web page only once the conversion is completed
-                            function oncomplete() {
-                                res.render('search',  {stype: 'year&' + year, results: results,
-                                            pagesize: pagesize, indexnav: indexnav, photoend: photoend,
-                                            isMovie: isMovie, title: 'Search Year: ' + year, page: page,
-                                            total: Math.floor(photocount / pagesize) + 1, vtype: 'year/' + year
-                                            });
-                                db.close();
-                            }
+                            db.close();
                         } else {
                             res.render('search', {stype: '', results: [],
                                             pagesize: pagesize, indexnav: 0, photoend: true,
@@ -163,54 +126,18 @@ var searchController = function(basenav, localbasenav, indexnav, indexskip, page
                             }
                             // if folder name is v8x6 then remove it from the results
                             for (var k = 0; k < results.length; k++) {
+                                var themeid = localbasenav.indexOf(results[k].theme);
+                                results[k].theme = basenav[themeid];
                                 if (results[k].subfolder === 'v8x6') {
                                     results[k].subfolder = '';
                                 }
                             }
-                            // create smaller photos to speed up the load process
-                            var deldone = false;
-                            for (var i = 0; i < results.length; i++) {
-                                fs.unlink(homedir + 'sharp/temp' + parseInt(i), function() {
-                                    if (deldone) {
-                                        // wait until all files deleted before resizing
-                                        deldone = false;
-                                        for (var j = 0; j < results.length; j++) {
-                                            var themeid = localbasenav.indexOf(results[j].theme);
-                                            results[j].theme = basenav[themeid];
-                                            var image = sharp(homedir + 'assets/' + basenav[themeid] + '/' +
-                                                results[j].folder + '/' + results[j].filename);
-                                            resize(j, image, results[j].filename);
-                                        }
-                                    }
-                                });
-                            }
-                            deldone = true;
-                            function resize(k, image, filename) {
-                                image.metadata().then(function(metadata) {
-                                    if (metadata.width > metadata.height) {
-                                        image.resize(300, null).toFile(homedir + 'sharp/temp' + parseInt(k), function(err) {
-                                            if (k === results.length - 1) {
-                                                oncomplete();
-                                            }
+                            res.render('search',{stype: 'text&' + text, results: results,
+                                        pagesize: pagesize, indexnav: indexnav, photoend: photoend,
+                                        isMovie: isMovie, title: 'Search Text: ' + text, page: page,
+                                        total: Math.floor(photocount / pagesize) + 1, vtype: 'text/' + text
                                         });
-                                    } else {
-                                        image.resize(null, 500).toFile(homedir + 'sharp/temp' + parseInt(k), function(err) {
-                                            if (k === results.length - 1) {
-                                                oncomplete();
-                                            }
-                                        });
-                                    }
-                                });
-                            }
-                            // launch the web page only once the conversion is completed
-                            function oncomplete() {
-                                res.render('search',{stype: 'text&' + text, results: results,
-                                            pagesize: pagesize, indexnav: indexnav, photoend: photoend,
-                                            isMovie: isMovie, title: 'Search Text: ' + text, page: page,
-                                            total: Math.floor(photocount / pagesize) + 1, vtype: 'text/' + text
-                                            });
-                                db.close();
-                            }
+                            db.close();
                         } else {
                             res.render('search', {stype: '', results: [],
                                             pagesize: pagesize, indexnav: 0, photoend: true,

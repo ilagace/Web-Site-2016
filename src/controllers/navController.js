@@ -1,6 +1,5 @@
 var mongodb = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
-var sharp = require('sharp');
 var fs = require('fs');
 
 var navController = function(basenav, localbasenav, indexnav, indexskip, pagesize, homedir) {
@@ -31,16 +30,28 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
     var getSkipIndex = function (req, res) {
         var folder = req.params.id;
         indexskip = req.params.page;
-        if (indexskip === '0') {
-            indexnav = 0;
-        } else {
-            if (indexskip === '+') {
+        switch (indexskip) {
+            case '0':
+                indexnav = 0;
+                break;
+            case '+':
                 indexnav += pagesize;
-            } else {
-                if (indexskip === '-') {
-                    indexnav -= pagesize;
-                }
-            }
+                break;
+            case '-':
+                indexnav -= pagesize;
+                break;
+            case 'p':
+                indexnav += 3 * pagesize;
+                break;
+            case 'm':
+                indexnav -= 3 * pagesize;
+                break;
+            case 'l':
+                indexnav = -1;
+                break;
+            case 'f':
+                indexnav = 0;
+                break;
         }
         res.redirect('/navigation/folder/' + folder);
     };
@@ -59,14 +70,25 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                 }
                 collection.count({folder: folder, mediaType: 'photo'}, function(err, results) {
                     photocount = results;
+                    if (indexnav === -1) {
+                        indexnav = Math.min(Math.floor(photocount / pagesize) * pagesize,((photocount / pagesize) - 1)  * pagesize);
+                    }
                     collection.find({folder: folder, mediaType: 'photo'}).sort({exifdate: 1, filename: 1})
                         .limit(pagesize).skip(indexnav).toArray(function(err, results) {
                         if (results && results[0] !== undefined) {
                             var themeid = localbasenav.indexOf(results[0].theme);
                             //  check if we are at the end of the folder
                             var photoend = true;
+                            var photoplus9 = false;
+                            var photominus9 = false;
                             if (photocount > (indexnav + results.length)) {
                                 photoend =  false;
+                            }
+                            if (photocount > indexnav + 3 * pagesize) {
+                                photoplus9 =  true;
+                            }
+                            if (indexnav > 3 * pagesize) {
+                                photominus9 =  true;
                             }
                             // if folder name is v8x6 then remove it from the results
                             for (var k = 0; k < results.length; k++) {
@@ -74,11 +96,18 @@ var navController = function(basenav, localbasenav, indexnav, indexskip, pagesiz
                                     results[k].subfolder = '';
                                 }
                             }
+                            // if folder name has a plus sign then add a %2B
+                            for (var l = 0; l < results.length; l++) {
+                                if (results[l].folder.indexOf(' +') >= -1) {
+                                    results[l].folder = results[l].folder.replace('+','%2B');
+                                }
+                            }
                             res.render('photos',  {nav: ['Back', 'Theme'],
                                         link: ['/navigation/' + themeid, '/navigation/'] ,
                                         theme: basenav[themeid], results: results,
-                                        pagesize: pagesize, indexnav: indexnav, photoend: photoend,
-                                        isMovie: isMovie
+                                        pagesize: pagesize, indexnav: indexnav, indexmax: photocount,
+                                        photoend: photoend, isMovie: isMovie,
+                                        photoplus9: photoplus9, photominus9: photominus9
                                         });
                             db.close();
                         } else {

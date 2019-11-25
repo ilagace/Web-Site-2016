@@ -69,7 +69,7 @@
                     <div class="col-md-12">
                         <% for(var i = 0; i < results.length; i++) {%>
                                 <video width="320" height="240" controls>
-                                    <source src="/assets/<%=results[i].theme%>/<%=results[i].folder%>/<%=results[i].filename%>" type="video/mp4">
+                                    <source src="http://s3-us-west-2.amazonaws.com/ivanweb/<%=results[i].theme%>/<%=results[i].folder%>/<%=results[i].filename%>" type="video/mp4">
                                 </video>
                         <%}%>
                     </div>
