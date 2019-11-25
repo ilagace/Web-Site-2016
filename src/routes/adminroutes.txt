@@ -415,7 +415,7 @@ var router = function(basenav, localbasenav, category, io) {
 
         //  Setup Google Maps API
         var publicConfig = {
-            key: 'AIzaSyAhPi1zmHW0g3PdQgTs9rcO-3FweDPiT-U',
+            key: '',
         };
         var gmAPI = new GoogleMapsAPI(publicConfig);
 
