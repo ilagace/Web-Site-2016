@@ -25,7 +25,7 @@
     "image-size": "^0.5.0",
     "jade": "^1.11.0",
     "jsonfile": "^2.3.1",
-    "mongodb": "^2.1.17",
+    "mongodb": "^3.1.13",
     "mongoose": "^5.7.12",
     "mssql": "^3.2.1",
     "passport": "^0.3.2",
